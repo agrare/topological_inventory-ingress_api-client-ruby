@@ -66,6 +66,8 @@ module TopologicalInventory
             if (value = attributes[:'manager_uuids']).is_a?(Array)
               self.manager_uuids = value
             end
+          else
+            self.manager_uuids = []
           end
 
           if attributes.has_key?(:'all_manager_uuids')
@@ -78,12 +80,16 @@ module TopologicalInventory
             if (value = attributes[:'data']).is_a?(Array)
               self.data = value
             end
+          else
+            self.data = []
           end
 
           if attributes.has_key?(:'partial_data')
             if (value = attributes[:'partial_data']).is_a?(Array)
               self.partial_data = value
             end
+          else
+            self.partial_data = []
           end
 
         end
