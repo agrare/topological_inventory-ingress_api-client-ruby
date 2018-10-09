@@ -16,7 +16,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "topological_inventory/ingress_api/client/version"
 
 Gem::Specification.new do |s|
-  s.name        = "topological_inventory/ingress_api/client"
+  s.name        = "topological_inventory-ingress_api-client"
   s.version     = TopologicalInventory::IngressApi::Client::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["agrare@redhat.com"]
@@ -24,8 +24,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/agrare/topological_inventory-ingress_api-client-ruby"
   s.summary     = "Topological Inventory Ingest API Ruby Gem"
   s.description = "Topological Inventory Ingest API"
-  # TODO uncommnet and update below with a proper license 
-  #s.license     = "Apache 2.0"
+  s.license     = "Apache 2.0"
   s.required_ruby_version = ">= 1.9"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'

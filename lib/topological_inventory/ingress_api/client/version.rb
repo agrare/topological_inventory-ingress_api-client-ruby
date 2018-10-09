@@ -10,6 +10,10 @@ Swagger Codegen version: 2.3.1
 
 =end
 
-module TopologicalInventory::IngressApi::Client
-  VERSION = "1.0.0"
+module TopologicalInventory
+  module IngressApi
+    module Client
+      VERSION = "1.0.0"
+    end
+  end
 end

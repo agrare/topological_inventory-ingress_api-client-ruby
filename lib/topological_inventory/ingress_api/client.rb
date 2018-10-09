@@ -34,19 +34,23 @@ require 'topological_inventory/ingress_api/client/models/service_parameters_set'
 require 'topological_inventory/ingress_api/client/api/admins_api'
 require 'topological_inventory/ingress_api/client/api/developers_api'
 
-module TopologicalInventory::IngressApi::Client
-  class << self
-    # Customize default settings for the SDK using block.
-    #   TopologicalInventory::IngressApi::Client.configure do |config|
-    #     config.username = "xxx"
-    #     config.password = "xxx"
-    #   end
-    # If no block given, return the default Configuration object.
-    def configure
-      if block_given?
-        yield(Configuration.default)
-      else
-        Configuration.default
+module TopologicalInventory
+  module IngressApi
+    module Client
+      class << self
+        # Customize default settings for the SDK using block.
+        #   TopologicalInventory::IngressApi::Client.configure do |config|
+        #     config.username = "xxx"
+        #     config.password = "xxx"
+        #   end
+        # If no block given, return the default Configuration object.
+        def configure
+          if block_given?
+            yield(Configuration.default)
+          else
+            Configuration.default
+          end
+        end
       end
     end
   end

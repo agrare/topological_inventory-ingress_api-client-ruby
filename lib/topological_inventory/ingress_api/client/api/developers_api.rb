@@ -12,80 +12,84 @@ Swagger Codegen version: 2.3.1
 
 require "uri"
 
-module TopologicalInventory::IngressApi::Client
-  class DevelopersApi
-    attr_accessor :api_client
+module TopologicalInventory
+  module IngressApi
+    module Client
+      class DevelopersApi
+        attr_accessor :api_client
 
-    def initialize(api_client = ApiClient.default)
-      @api_client = api_client
-    end
+        def initialize(api_client = ApiClient.default)
+          @api_client = api_client
+        end
 
-    # searches schemas
-    # By passing in the appropriate options, you can search for available inventory schemas in the system 
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :search_string pass an optional search string for looking up schemas
-    # @option opts [Integer] :skip number of records to skip for pagination
-    # @option opts [Integer] :limit maximum number of records to return
-    # @return [Array<Schema>]
-    def search_schemas(opts = {})
-      data, _status_code, _headers = search_schemas_with_http_info(opts)
-      return data
-    end
+        # searches schemas
+        # By passing in the appropriate options, you can search for available inventory schemas in the system 
+        # @param [Hash] opts the optional parameters
+        # @option opts [String] :search_string pass an optional search string for looking up schemas
+        # @option opts [Integer] :skip number of records to skip for pagination
+        # @option opts [Integer] :limit maximum number of records to return
+        # @return [Array<Schema>]
+        def search_schemas(opts = {})
+          data, _status_code, _headers = search_schemas_with_http_info(opts)
+          return data
+        end
 
-    # searches schemas
-    # By passing in the appropriate options, you can search for available inventory schemas in the system 
-    # @param [Hash] opts the optional parameters
-    # @option opts [String] :search_string pass an optional search string for looking up schemas
-    # @option opts [Integer] :skip number of records to skip for pagination
-    # @option opts [Integer] :limit maximum number of records to return
-    # @return [Array<(Array<Schema>, Fixnum, Hash)>] Array<Schema> data, response status code and response headers
-    def search_schemas_with_http_info(opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DevelopersApi.search_schemas ..."
+        # searches schemas
+        # By passing in the appropriate options, you can search for available inventory schemas in the system 
+        # @param [Hash] opts the optional parameters
+        # @option opts [String] :search_string pass an optional search string for looking up schemas
+        # @option opts [Integer] :skip number of records to skip for pagination
+        # @option opts [Integer] :limit maximum number of records to return
+        # @return [Array<(Array<Schema>, Fixnum, Hash)>] Array<Schema> data, response status code and response headers
+        def search_schemas_with_http_info(opts = {})
+          if @api_client.config.debugging
+            @api_client.config.logger.debug "Calling API: DevelopersApi.search_schemas ..."
+          end
+          if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
+            fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling DevelopersApi.search_schemas, must be greater than or equal to 0.'
+          end
+
+          if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 50
+            fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DevelopersApi.search_schemas, must be smaller than or equal to 50.'
+          end
+
+          if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
+            fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DevelopersApi.search_schemas, must be greater than or equal to 0.'
+          end
+
+          # resource path
+          local_var_path = "/schemas"
+
+          # query parameters
+          query_params = {}
+          query_params[:'searchString'] = opts[:'search_string'] if !opts[:'search_string'].nil?
+          query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
+          query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+
+          # header parameters
+          header_params = {}
+          # HTTP header 'Accept' (if needed)
+          header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+          # form parameters
+          form_params = {}
+
+          # http body (model)
+          post_body = nil
+          auth_names = []
+          data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+            :header_params => header_params,
+            :query_params => query_params,
+            :form_params => form_params,
+            :body => post_body,
+            :auth_names => auth_names,
+            :return_type => 'Array<Schema>')
+          if @api_client.config.debugging
+            @api_client.config.logger.debug "API called: DevelopersApi#search_schemas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+          end
+          return data, status_code, headers
+        end
       end
-      if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling DevelopersApi.search_schemas, must be greater than or equal to 0.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 50
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DevelopersApi.search_schemas, must be smaller than or equal to 50.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DevelopersApi.search_schemas, must be greater than or equal to 0.'
-      end
-
-      # resource path
-      local_var_path = "/schemas"
-
-      # query parameters
-      query_params = {}
-      query_params[:'searchString'] = opts[:'search_string'] if !opts[:'search_string'].nil?
-      query_params[:'skip'] = opts[:'skip'] if !opts[:'skip'].nil?
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = []
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<Schema>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DevelopersApi#search_schemas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
     end
   end
 end
