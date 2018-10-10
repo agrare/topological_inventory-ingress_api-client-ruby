@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["agrare@redhat.com"]
   s.email       = ["agrare@redhat.com"]
-  s.homepage    = "https://github.com/agrare/topological_inventory-ingress_api-client-ruby"
+  s.homepage    = "https://github.com/ManageIQ/topological_inventory-ingress_api-client-ruby"
   s.summary     = "Topological Inventory Ingest API Ruby Gem"
   s.description = "Topological Inventory Ingest API"
   s.license     = "Apache 2.0"
