@@ -13,7 +13,7 @@ Swagger Codegen version: 2.3.1
 module TopologicalInventory
   module IngressApi
     module Client
-      VERSION = "1.0.0"
+      VERSION = "0.0.1"
     end
   end
 end
