@@ -132,7 +132,7 @@ module TopologicalInventory
         def initialize
           @scheme = 'http'
           @host = 'localhost'
-          @base_path = '/insights/topological_inventory/ingress_api/0.0.1'
+          @base_path = '/topological_inventory/ingress_api/0.0.1'
           @api_key = {}
           @api_key_prefix = {}
           @timeout = 0

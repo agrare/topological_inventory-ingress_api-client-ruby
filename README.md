@@ -71,7 +71,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost/insights/topological_inventory/ingress_api/0.0.1*
+All URIs are relative to *http://localhost/topological_inventory/ingress_api/0.0.1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

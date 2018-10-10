@@ -18,7 +18,7 @@ describe TopologicalInventory::IngressApi::Client::Configuration do
   before(:each) do
     # uncomment below to setup host and base_path
     #require 'URI'
-    #uri = URI.parse("http://localhost/insights/topological_inventory/ingress_api/0.0.1")
+    #uri = URI.parse("http://localhost/topological_inventory/ingress_api/0.0.1")
     #TopologicalInventory::IngressApi::Client.configure do |c|
     #  c.host = uri.host
     #  c.base_path = uri.path
@@ -28,14 +28,14 @@ describe TopologicalInventory::IngressApi::Client::Configuration do
   describe '#base_url' do
     it 'should have the default value' do
       # uncomment below to test default value of the base path
-      #expect(config.base_url).to eq("http://localhost/insights/topological_inventory/ingress_api/0.0.1")
+      #expect(config.base_url).to eq("http://localhost/topological_inventory/ingress_api/0.0.1")
     end
 
     it 'should remove trailing slashes' do
       [nil, '', '/', '//'].each do |base_path|
         config.base_path = base_path
         # uncomment below to test trailing slashes
-        #expect(config.base_url).to eq("http://localhost/insights/topological_inventory/ingress_api/0.0.1")
+        #expect(config.base_url).to eq("http://localhost/topological_inventory/ingress_api/0.0.1")
       end
     end
   end
