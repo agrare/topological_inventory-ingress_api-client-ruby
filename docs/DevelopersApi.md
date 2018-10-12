@@ -1,6 +1,6 @@
 # TopologicalInventory::IngressApi::Client::DevelopersApi
 
-All URIs are relative to *http://localhost/insights/topological_inventory/ingress_api/0.0.1*
+All URIs are relative to *http://localhost/topological_inventory/ingress_api/0.0.2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

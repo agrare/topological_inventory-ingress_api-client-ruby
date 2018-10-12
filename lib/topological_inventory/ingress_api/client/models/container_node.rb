@@ -16,32 +16,32 @@ module TopologicalInventory
   module IngressApi
     module Client
 
-      class ContainerGroup
+      class ContainerNode
         attr_accessor :source_ref
+
+        attr_accessor :resource_version
 
         attr_accessor :name
 
-        attr_accessor :resource_version
+        attr_accessor :cpus
+
+        attr_accessor :memory
 
         attr_accessor :source_created_at
 
         attr_accessor :source_deleted_at
-
-        attr_accessor :container_project
-
-        attr_accessor :container_node
 
 
         # Attribute mapping from ruby-style variable name to JSON key.
         def self.attribute_map
           {
             :'source_ref' => :'source_ref',
-            :'name' => :'name',
             :'resource_version' => :'resource_version',
+            :'name' => :'name',
+            :'cpus' => :'cpus',
+            :'memory' => :'memory',
             :'source_created_at' => :'source_created_at',
-            :'source_deleted_at' => :'source_deleted_at',
-            :'container_project' => :'container_project',
-            :'container_node' => :'container_node'
+            :'source_deleted_at' => :'source_deleted_at'
           }
         end
 
@@ -49,12 +49,12 @@ module TopologicalInventory
         def self.swagger_types
           {
             :'source_ref' => :'String',
-            :'name' => :'String',
             :'resource_version' => :'String',
+            :'name' => :'String',
+            :'cpus' => :'Integer',
+            :'memory' => :'Integer',
             :'source_created_at' => :'DateTime',
-            :'source_deleted_at' => :'DateTime',
-            :'container_project' => :'InventoryObjectLazy',
-            :'container_node' => :'InventoryObjectLazy'
+            :'source_deleted_at' => :'DateTime'
           }
         end
 
@@ -70,12 +70,20 @@ module TopologicalInventory
             self.source_ref = attributes[:'source_ref']
           end
 
+          if attributes.has_key?(:'resource_version')
+            self.resource_version = attributes[:'resource_version']
+          end
+
           if attributes.has_key?(:'name')
             self.name = attributes[:'name']
           end
 
-          if attributes.has_key?(:'resource_version')
-            self.resource_version = attributes[:'resource_version']
+          if attributes.has_key?(:'cpus')
+            self.cpus = attributes[:'cpus']
+          end
+
+          if attributes.has_key?(:'memory')
+            self.memory = attributes[:'memory']
           end
 
           if attributes.has_key?(:'source_created_at')
@@ -84,14 +92,6 @@ module TopologicalInventory
 
           if attributes.has_key?(:'source_deleted_at')
             self.source_deleted_at = attributes[:'source_deleted_at']
-          end
-
-          if attributes.has_key?(:'container_project')
-            self.container_project = attributes[:'container_project']
-          end
-
-          if attributes.has_key?(:'container_node')
-            self.container_node = attributes[:'container_node']
           end
 
         end
@@ -120,12 +120,12 @@ module TopologicalInventory
           return true if self.equal?(o)
           self.class == o.class &&
               source_ref == o.source_ref &&
-              name == o.name &&
               resource_version == o.resource_version &&
+              name == o.name &&
+              cpus == o.cpus &&
+              memory == o.memory &&
               source_created_at == o.source_created_at &&
-              source_deleted_at == o.source_deleted_at &&
-              container_project == o.container_project &&
-              container_node == o.container_node
+              source_deleted_at == o.source_deleted_at
         end
 
         # @see the `==` method
@@ -137,7 +137,7 @@ module TopologicalInventory
         # Calculates hash code according to all attributes.
         # @return [Fixnum] Hash code
         def hash
-          [source_ref, name, resource_version, source_created_at, source_deleted_at, container_project, container_node].hash
+          [source_ref, resource_version, name, cpus, memory, source_created_at, source_deleted_at].hash
         end
 
         # Builds the object from hash
