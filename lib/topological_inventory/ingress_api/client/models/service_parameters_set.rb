@@ -27,6 +27,10 @@ module TopologicalInventory
 
         attr_accessor :source_deleted_at
 
+        attr_accessor :create_json_schema
+
+        attr_accessor :update_json_schema
+
         attr_accessor :service_offering
 
 
@@ -38,6 +42,8 @@ module TopologicalInventory
             :'description' => :'description',
             :'source_created_at' => :'source_created_at',
             :'source_deleted_at' => :'source_deleted_at',
+            :'create_json_schema' => :'create_json_schema',
+            :'update_json_schema' => :'update_json_schema',
             :'service_offering' => :'service_offering'
           }
         end
@@ -50,6 +56,8 @@ module TopologicalInventory
             :'description' => :'String',
             :'source_created_at' => :'DateTime',
             :'source_deleted_at' => :'DateTime',
+            :'create_json_schema' => :'Object',
+            :'update_json_schema' => :'Object',
             :'service_offering' => :'InventoryObjectLazy'
           }
         end
@@ -80,6 +88,14 @@ module TopologicalInventory
 
           if attributes.has_key?(:'source_deleted_at')
             self.source_deleted_at = attributes[:'source_deleted_at']
+          end
+
+          if attributes.has_key?(:'create_json_schema')
+            self.create_json_schema = attributes[:'create_json_schema']
+          end
+
+          if attributes.has_key?(:'update_json_schema')
+            self.update_json_schema = attributes[:'update_json_schema']
           end
 
           if attributes.has_key?(:'service_offering')
@@ -116,6 +132,8 @@ module TopologicalInventory
               description == o.description &&
               source_created_at == o.source_created_at &&
               source_deleted_at == o.source_deleted_at &&
+              create_json_schema == o.create_json_schema &&
+              update_json_schema == o.update_json_schema &&
               service_offering == o.service_offering
         end
 
@@ -128,7 +146,7 @@ module TopologicalInventory
         # Calculates hash code according to all attributes.
         # @return [Fixnum] Hash code
         def hash
-          [source_ref, name, description, source_created_at, source_deleted_at, service_offering].hash
+          [source_ref, name, description, source_created_at, source_deleted_at, create_json_schema, update_json_schema, service_offering].hash
         end
 
         # Builds the object from hash
