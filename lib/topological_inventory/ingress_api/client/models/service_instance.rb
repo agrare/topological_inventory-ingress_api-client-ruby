@@ -27,7 +27,7 @@ module TopologicalInventory
 
         attr_accessor :service_offering
 
-        attr_accessor :service_parameters_set
+        attr_accessor :service_plan
 
 
         # Attribute mapping from ruby-style variable name to JSON key.
@@ -38,7 +38,7 @@ module TopologicalInventory
             :'source_created_at' => :'source_created_at',
             :'source_deleted_at' => :'source_deleted_at',
             :'service_offering' => :'service_offering',
-            :'service_parameters_set' => :'service_parameters_set'
+            :'service_plan' => :'service_plan'
           }
         end
 
@@ -50,7 +50,7 @@ module TopologicalInventory
             :'source_created_at' => :'DateTime',
             :'source_deleted_at' => :'DateTime',
             :'service_offering' => :'InventoryObjectLazy',
-            :'service_parameters_set' => :'InventoryObjectLazy'
+            :'service_plan' => :'InventoryObjectLazy'
           }
         end
 
@@ -82,8 +82,8 @@ module TopologicalInventory
             self.service_offering = attributes[:'service_offering']
           end
 
-          if attributes.has_key?(:'service_parameters_set')
-            self.service_parameters_set = attributes[:'service_parameters_set']
+          if attributes.has_key?(:'service_plan')
+            self.service_plan = attributes[:'service_plan']
           end
 
         end
@@ -121,7 +121,7 @@ module TopologicalInventory
               source_created_at == o.source_created_at &&
               source_deleted_at == o.source_deleted_at &&
               service_offering == o.service_offering &&
-              service_parameters_set == o.service_parameters_set
+              service_plan == o.service_plan
         end
 
         # @see the `==` method
@@ -133,7 +133,7 @@ module TopologicalInventory
         # Calculates hash code according to all attributes.
         # @return [Fixnum] Hash code
         def hash
-          [source_ref, name, source_created_at, source_deleted_at, service_offering, service_parameters_set].hash
+          [source_ref, name, source_created_at, source_deleted_at, service_offering, service_plan].hash
         end
 
         # Builds the object from hash

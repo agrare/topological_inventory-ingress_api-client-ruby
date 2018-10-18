@@ -50,7 +50,7 @@ describe 'ServiceInstance' do
     end
   end
 
-  describe 'test attribute "service_parameters_set"' do
+  describe 'test attribute "service_plan"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

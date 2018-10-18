@@ -93,7 +93,7 @@ Class | Method | HTTP request | Description
  - [TopologicalInventory::IngressApi::Client::ContainerTemplate](docs/ContainerTemplate.md)
  - [TopologicalInventory::IngressApi::Client::ServiceInstance](docs/ServiceInstance.md)
  - [TopologicalInventory::IngressApi::Client::ServiceOffering](docs/ServiceOffering.md)
- - [TopologicalInventory::IngressApi::Client::ServiceParametersSet](docs/ServiceParametersSet.md)
+ - [TopologicalInventory::IngressApi::Client::ServicePlan](docs/ServicePlan.md)
 
 
 ## Documentation for Authorization

@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::ServiceParametersSet
+# TopologicalInventory::IngressApi::Client::ServicePlan
 
 ## Properties
 Name | Type | Description | Notes
