@@ -29,7 +29,7 @@ require 'topological_inventory/ingress_api/client/models/container_project'
 require 'topological_inventory/ingress_api/client/models/container_template'
 require 'topological_inventory/ingress_api/client/models/service_instance'
 require 'topological_inventory/ingress_api/client/models/service_offering'
-require 'topological_inventory/ingress_api/client/models/service_parameters_set'
+require 'topological_inventory/ingress_api/client/models/service_plan'
 
 # APIs
 require 'topological_inventory/ingress_api/client/api/admins_api'

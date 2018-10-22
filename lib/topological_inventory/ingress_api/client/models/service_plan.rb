@@ -16,7 +16,7 @@ module TopologicalInventory
   module IngressApi
     module Client
 
-      class ServiceParametersSet
+      class ServicePlan
         attr_accessor :source_ref
 
         attr_accessor :name
