@@ -27,6 +27,8 @@ module TopologicalInventory
 
         attr_accessor :source_deleted_at
 
+        attr_accessor :resource_timestamp
+
         attr_accessor :create_json_schema
 
         attr_accessor :update_json_schema
@@ -42,6 +44,7 @@ module TopologicalInventory
             :'description' => :'description',
             :'source_created_at' => :'source_created_at',
             :'source_deleted_at' => :'source_deleted_at',
+            :'resource_timestamp' => :'resource_timestamp',
             :'create_json_schema' => :'create_json_schema',
             :'update_json_schema' => :'update_json_schema',
             :'service_offering' => :'service_offering'
@@ -56,6 +59,7 @@ module TopologicalInventory
             :'description' => :'String',
             :'source_created_at' => :'DateTime',
             :'source_deleted_at' => :'DateTime',
+            :'resource_timestamp' => :'DateTime',
             :'create_json_schema' => :'Object',
             :'update_json_schema' => :'Object',
             :'service_offering' => :'InventoryObjectLazy'
@@ -88,6 +92,10 @@ module TopologicalInventory
 
           if attributes.has_key?(:'source_deleted_at')
             self.source_deleted_at = attributes[:'source_deleted_at']
+          end
+
+          if attributes.has_key?(:'resource_timestamp')
+            self.resource_timestamp = attributes[:'resource_timestamp']
           end
 
           if attributes.has_key?(:'create_json_schema')
@@ -132,6 +140,7 @@ module TopologicalInventory
               description == o.description &&
               source_created_at == o.source_created_at &&
               source_deleted_at == o.source_deleted_at &&
+              resource_timestamp == o.resource_timestamp &&
               create_json_schema == o.create_json_schema &&
               update_json_schema == o.update_json_schema &&
               service_offering == o.service_offering
@@ -146,7 +155,7 @@ module TopologicalInventory
         # Calculates hash code according to all attributes.
         # @return [Fixnum] Hash code
         def hash
-          [source_ref, name, description, source_created_at, source_deleted_at, create_json_schema, update_json_schema, service_offering].hash
+          [source_ref, name, description, source_created_at, source_deleted_at, resource_timestamp, create_json_schema, update_json_schema, service_offering].hash
         end
 
         # Builds the object from hash

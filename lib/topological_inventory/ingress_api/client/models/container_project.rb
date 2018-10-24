@@ -29,6 +29,8 @@ module TopologicalInventory
 
         attr_accessor :source_deleted_at
 
+        attr_accessor :resource_timestamp
+
 
         # Attribute mapping from ruby-style variable name to JSON key.
         def self.attribute_map
@@ -38,7 +40,8 @@ module TopologicalInventory
             :'display_name' => :'display_name',
             :'resource_version' => :'resource_version',
             :'source_created_at' => :'source_created_at',
-            :'source_deleted_at' => :'source_deleted_at'
+            :'source_deleted_at' => :'source_deleted_at',
+            :'resource_timestamp' => :'resource_timestamp'
           }
         end
 
@@ -50,7 +53,8 @@ module TopologicalInventory
             :'display_name' => :'String',
             :'resource_version' => :'String',
             :'source_created_at' => :'DateTime',
-            :'source_deleted_at' => :'DateTime'
+            :'source_deleted_at' => :'DateTime',
+            :'resource_timestamp' => :'DateTime'
           }
         end
 
@@ -84,6 +88,10 @@ module TopologicalInventory
 
           if attributes.has_key?(:'source_deleted_at')
             self.source_deleted_at = attributes[:'source_deleted_at']
+          end
+
+          if attributes.has_key?(:'resource_timestamp')
+            self.resource_timestamp = attributes[:'resource_timestamp']
           end
 
         end
@@ -121,7 +129,8 @@ module TopologicalInventory
               display_name == o.display_name &&
               resource_version == o.resource_version &&
               source_created_at == o.source_created_at &&
-              source_deleted_at == o.source_deleted_at
+              source_deleted_at == o.source_deleted_at &&
+              resource_timestamp == o.resource_timestamp
         end
 
         # @see the `==` method
@@ -133,7 +142,7 @@ module TopologicalInventory
         # Calculates hash code according to all attributes.
         # @return [Fixnum] Hash code
         def hash
-          [source_ref, name, display_name, resource_version, source_created_at, source_deleted_at].hash
+          [source_ref, name, display_name, resource_version, source_created_at, source_deleted_at, resource_timestamp].hash
         end
 
         # Builds the object from hash

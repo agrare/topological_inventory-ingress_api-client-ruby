@@ -25,6 +25,8 @@ module TopologicalInventory
 
         attr_accessor :source_deleted_at
 
+        attr_accessor :resource_timestamp
+
         attr_accessor :service_offering
 
         attr_accessor :service_plan
@@ -37,6 +39,7 @@ module TopologicalInventory
             :'name' => :'name',
             :'source_created_at' => :'source_created_at',
             :'source_deleted_at' => :'source_deleted_at',
+            :'resource_timestamp' => :'resource_timestamp',
             :'service_offering' => :'service_offering',
             :'service_plan' => :'service_plan'
           }
@@ -49,6 +52,7 @@ module TopologicalInventory
             :'name' => :'String',
             :'source_created_at' => :'DateTime',
             :'source_deleted_at' => :'DateTime',
+            :'resource_timestamp' => :'DateTime',
             :'service_offering' => :'InventoryObjectLazy',
             :'service_plan' => :'InventoryObjectLazy'
           }
@@ -76,6 +80,10 @@ module TopologicalInventory
 
           if attributes.has_key?(:'source_deleted_at')
             self.source_deleted_at = attributes[:'source_deleted_at']
+          end
+
+          if attributes.has_key?(:'resource_timestamp')
+            self.resource_timestamp = attributes[:'resource_timestamp']
           end
 
           if attributes.has_key?(:'service_offering')
@@ -120,6 +128,7 @@ module TopologicalInventory
               name == o.name &&
               source_created_at == o.source_created_at &&
               source_deleted_at == o.source_deleted_at &&
+              resource_timestamp == o.resource_timestamp &&
               service_offering == o.service_offering &&
               service_plan == o.service_plan
         end
@@ -133,7 +142,7 @@ module TopologicalInventory
         # Calculates hash code according to all attributes.
         # @return [Fixnum] Hash code
         def hash
-          [source_ref, name, source_created_at, source_deleted_at, service_offering, service_plan].hash
+          [source_ref, name, source_created_at, source_deleted_at, resource_timestamp, service_offering, service_plan].hash
         end
 
         # Builds the object from hash
