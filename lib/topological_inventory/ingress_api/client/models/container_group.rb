@@ -27,6 +27,8 @@ module TopologicalInventory
 
         attr_accessor :source_deleted_at
 
+        attr_accessor :resource_timestamp
+
         attr_accessor :container_project
 
         attr_accessor :container_node
@@ -40,6 +42,7 @@ module TopologicalInventory
             :'resource_version' => :'resource_version',
             :'source_created_at' => :'source_created_at',
             :'source_deleted_at' => :'source_deleted_at',
+            :'resource_timestamp' => :'resource_timestamp',
             :'container_project' => :'container_project',
             :'container_node' => :'container_node'
           }
@@ -53,6 +56,7 @@ module TopologicalInventory
             :'resource_version' => :'String',
             :'source_created_at' => :'DateTime',
             :'source_deleted_at' => :'DateTime',
+            :'resource_timestamp' => :'DateTime',
             :'container_project' => :'InventoryObjectLazy',
             :'container_node' => :'InventoryObjectLazy'
           }
@@ -84,6 +88,10 @@ module TopologicalInventory
 
           if attributes.has_key?(:'source_deleted_at')
             self.source_deleted_at = attributes[:'source_deleted_at']
+          end
+
+          if attributes.has_key?(:'resource_timestamp')
+            self.resource_timestamp = attributes[:'resource_timestamp']
           end
 
           if attributes.has_key?(:'container_project')
@@ -124,6 +132,7 @@ module TopologicalInventory
               resource_version == o.resource_version &&
               source_created_at == o.source_created_at &&
               source_deleted_at == o.source_deleted_at &&
+              resource_timestamp == o.resource_timestamp &&
               container_project == o.container_project &&
               container_node == o.container_node
         end
@@ -137,7 +146,7 @@ module TopologicalInventory
         # Calculates hash code according to all attributes.
         # @return [Fixnum] Hash code
         def hash
-          [source_ref, name, resource_version, source_created_at, source_deleted_at, container_project, container_node].hash
+          [source_ref, name, resource_version, source_created_at, source_deleted_at, resource_timestamp, container_project, container_node].hash
         end
 
         # Builds the object from hash
