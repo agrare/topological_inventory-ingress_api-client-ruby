@@ -32,8 +32,7 @@ require 'topological_inventory/ingress_api/client/models/service_offering'
 require 'topological_inventory/ingress_api/client/models/service_plan'
 
 # APIs
-require 'topological_inventory/ingress_api/client/api/admins_api'
-require 'topological_inventory/ingress_api/client/api/developers_api'
+require 'topological_inventory/ingress_api/client/api/default_api'
 
 module TopologicalInventory
   module IngressApi

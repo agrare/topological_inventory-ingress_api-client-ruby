@@ -15,11 +15,61 @@ require "uri"
 module TopologicalInventory
   module IngressApi
     module Client
-      class DevelopersApi
+      class DefaultApi
         attr_accessor :api_client
 
         def initialize(api_client = ApiClient.default)
           @api_client = api_client
+        end
+
+        # save inventory
+        # Submits a payload to be persisted to the database
+        # @param [Hash] opts the optional parameters
+        # @option opts [Inventory] :inventory Inventory payload
+        # @return [nil]
+        def save_inventory(opts = {})
+          save_inventory_with_http_info(opts)
+          return nil
+        end
+
+        # save inventory
+        # Submits a payload to be persisted to the database
+        # @param [Hash] opts the optional parameters
+        # @option opts [Inventory] :inventory Inventory payload
+        # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
+        def save_inventory_with_http_info(opts = {})
+          if @api_client.config.debugging
+            @api_client.config.logger.debug "Calling API: DefaultApi.save_inventory ..."
+          end
+          # resource path
+          local_var_path = "/inventory"
+
+          # query parameters
+          query_params = {}
+
+          # header parameters
+          header_params = {}
+          # HTTP header 'Accept' (if needed)
+          header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+          # HTTP header 'Content-Type'
+          header_params['Content-Type'] = @api_client.select_header_content_type(['application/json'])
+
+          # form parameters
+          form_params = {}
+
+          # http body (model)
+          post_body = @api_client.object_to_http_body(opts[:'inventory'])
+          auth_names = ['UserSecurity']
+          data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+            :header_params => header_params,
+            :query_params => query_params,
+            :form_params => form_params,
+            :body => post_body,
+            :auth_names => auth_names)
+          if @api_client.config.debugging
+            @api_client.config.logger.debug "API called: DefaultApi#save_inventory\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+          end
+          return data, status_code, headers
         end
 
         # searches schemas
@@ -43,18 +93,18 @@ module TopologicalInventory
         # @return [Array<(Array<Schema>, Fixnum, Hash)>] Array<Schema> data, response status code and response headers
         def search_schemas_with_http_info(opts = {})
           if @api_client.config.debugging
-            @api_client.config.logger.debug "Calling API: DevelopersApi.search_schemas ..."
+            @api_client.config.logger.debug "Calling API: DefaultApi.search_schemas ..."
           end
           if @api_client.config.client_side_validation && !opts[:'skip'].nil? && opts[:'skip'] < 0
-            fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling DevelopersApi.search_schemas, must be greater than or equal to 0.'
+            fail ArgumentError, 'invalid value for "opts[:"skip"]" when calling DefaultApi.search_schemas, must be greater than or equal to 0.'
           end
 
           if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 50
-            fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DevelopersApi.search_schemas, must be smaller than or equal to 50.'
+            fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.search_schemas, must be smaller than or equal to 50.'
           end
 
           if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 0
-            fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DevelopersApi.search_schemas, must be greater than or equal to 0.'
+            fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling DefaultApi.search_schemas, must be greater than or equal to 0.'
           end
 
           # resource path
@@ -76,7 +126,7 @@ module TopologicalInventory
 
           # http body (model)
           post_body = nil
-          auth_names = []
+          auth_names = ['UserSecurity']
           data, status_code, headers = @api_client.call_api(:GET, local_var_path,
             :header_params => header_params,
             :query_params => query_params,
@@ -85,7 +135,7 @@ module TopologicalInventory
             :auth_names => auth_names,
             :return_type => 'Array<Schema>')
           if @api_client.config.debugging
-            @api_client.config.logger.debug "API called: DevelopersApi#search_schemas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+            @api_client.config.logger.debug "API called: DefaultApi#search_schemas\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
           end
           return data, status_code, headers
         end
