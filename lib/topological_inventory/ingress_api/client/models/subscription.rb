@@ -14,41 +14,25 @@ require 'date'
 
 module TopologicalInventory::IngressApi::Client
 
-  class InventoryObjectLazy
-    attr_accessor :inventory_collection_name
+  class Subscription
+    attr_accessor :source_ref
 
-    attr_accessor :reference
-
-    attr_accessor :ref
-
-    attr_accessor :key
-
-    attr_accessor :default
-
-    attr_accessor :transform_nested_lazy_finds
+    attr_accessor :name
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'inventory_collection_name' => :'inventory_collection_name',
-        :'reference' => :'reference',
-        :'ref' => :'ref',
-        :'key' => :'key',
-        :'default' => :'default',
-        :'transform_nested_lazy_finds' => :'transform_nested_lazy_finds'
+        :'source_ref' => :'source_ref',
+        :'name' => :'name'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'inventory_collection_name' => :'String',
-        :'reference' => :'Object',
-        :'ref' => :'String',
-        :'key' => :'String',
-        :'default' => :'Object',
-        :'transform_nested_lazy_finds' => :'BOOLEAN'
+        :'source_ref' => :'String',
+        :'name' => :'String'
       }
     end
 
@@ -60,28 +44,12 @@ module TopologicalInventory::IngressApi::Client
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'inventory_collection_name')
-        self.inventory_collection_name = attributes[:'inventory_collection_name']
+      if attributes.has_key?(:'source_ref')
+        self.source_ref = attributes[:'source_ref']
       end
 
-      if attributes.has_key?(:'reference')
-        self.reference = attributes[:'reference']
-      end
-
-      if attributes.has_key?(:'ref')
-        self.ref = attributes[:'ref']
-      end
-
-      if attributes.has_key?(:'key')
-        self.key = attributes[:'key']
-      end
-
-      if attributes.has_key?(:'default')
-        self.default = attributes[:'default']
-      end
-
-      if attributes.has_key?(:'transform_nested_lazy_finds')
-        self.transform_nested_lazy_finds = attributes[:'transform_nested_lazy_finds']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
     end
@@ -90,8 +58,8 @@ module TopologicalInventory::IngressApi::Client
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @inventory_collection_name.nil?
-        invalid_properties.push("invalid value for 'inventory_collection_name', inventory_collection_name cannot be nil.")
+      if @source_ref.nil?
+        invalid_properties.push("invalid value for 'source_ref', source_ref cannot be nil.")
       end
 
       return invalid_properties
@@ -100,7 +68,7 @@ module TopologicalInventory::IngressApi::Client
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @inventory_collection_name.nil?
+      return false if @source_ref.nil?
       return true
     end
 
@@ -109,12 +77,8 @@ module TopologicalInventory::IngressApi::Client
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          inventory_collection_name == o.inventory_collection_name &&
-          reference == o.reference &&
-          ref == o.ref &&
-          key == o.key &&
-          default == o.default &&
-          transform_nested_lazy_finds == o.transform_nested_lazy_finds
+          source_ref == o.source_ref &&
+          name == o.name
     end
 
     # @see the `==` method
@@ -126,7 +90,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [inventory_collection_name, reference, ref, key, default, transform_nested_lazy_finds].hash
+      [source_ref, name].hash
     end
 
     # Builds the object from hash
