@@ -11,5 +11,7 @@ Name | Type | Description | Notes
 **create_json_schema** | **Object** |  | [optional] 
 **update_json_schema** | **Object** |  | [optional] 
 **service_offering** | [**InventoryObjectLazy**](InventoryObjectLazy.md) |  | [optional] 
+**source_region** | [**InventoryObjectLazy**](InventoryObjectLazy.md) |  | [optional] 
+**subscription** | [**InventoryObjectLazy**](InventoryObjectLazy.md) |  | [optional] 
 
 

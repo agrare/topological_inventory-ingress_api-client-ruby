@@ -27,7 +27,9 @@ module TopologicalInventory::IngressApi::Client
 
     attr_accessor :resource_timestamp
 
-    attr_accessor :region
+    attr_accessor :source_region
+
+    attr_accessor :subscription
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -39,7 +41,8 @@ module TopologicalInventory::IngressApi::Client
         :'source_created_at' => :'source_created_at',
         :'source_deleted_at' => :'source_deleted_at',
         :'resource_timestamp' => :'resource_timestamp',
-        :'region' => :'region'
+        :'source_region' => :'source_region',
+        :'subscription' => :'subscription'
       }
     end
 
@@ -52,7 +55,8 @@ module TopologicalInventory::IngressApi::Client
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
         :'resource_timestamp' => :'DateTime',
-        :'region' => :'InventoryObjectLazy'
+        :'source_region' => :'InventoryObjectLazy',
+        :'subscription' => :'InventoryObjectLazy'
       }
     end
 
@@ -88,8 +92,12 @@ module TopologicalInventory::IngressApi::Client
         self.resource_timestamp = attributes[:'resource_timestamp']
       end
 
-      if attributes.has_key?(:'region')
-        self.region = attributes[:'region']
+      if attributes.has_key?(:'source_region')
+        self.source_region = attributes[:'source_region']
+      end
+
+      if attributes.has_key?(:'subscription')
+        self.subscription = attributes[:'subscription']
       end
 
     end
@@ -123,7 +131,8 @@ module TopologicalInventory::IngressApi::Client
           source_created_at == o.source_created_at &&
           source_deleted_at == o.source_deleted_at &&
           resource_timestamp == o.resource_timestamp &&
-          region == o.region
+          source_region == o.source_region &&
+          subscription == o.subscription
     end
 
     # @see the `==` method
@@ -135,7 +144,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, description, source_created_at, source_deleted_at, resource_timestamp, region].hash
+      [source_ref, name, description, source_created_at, source_deleted_at, resource_timestamp, source_region, subscription].hash
     end
 
     # Builds the object from hash

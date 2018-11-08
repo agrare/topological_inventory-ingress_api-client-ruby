@@ -29,7 +29,9 @@ module TopologicalInventory::IngressApi::Client
 
     attr_accessor :service_parameters_set
 
-    attr_accessor :region
+    attr_accessor :source_region
+
+    attr_accessor :subscription
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -42,7 +44,8 @@ module TopologicalInventory::IngressApi::Client
         :'resource_timestamp' => :'resource_timestamp',
         :'service_offering' => :'service_offering',
         :'service_parameters_set' => :'service_parameters_set',
-        :'region' => :'region'
+        :'source_region' => :'source_region',
+        :'subscription' => :'subscription'
       }
     end
 
@@ -56,7 +59,8 @@ module TopologicalInventory::IngressApi::Client
         :'resource_timestamp' => :'DateTime',
         :'service_offering' => :'InventoryObjectLazy',
         :'service_parameters_set' => :'InventoryObjectLazy',
-        :'region' => :'InventoryObjectLazy'
+        :'source_region' => :'InventoryObjectLazy',
+        :'subscription' => :'InventoryObjectLazy'
       }
     end
 
@@ -96,8 +100,12 @@ module TopologicalInventory::IngressApi::Client
         self.service_parameters_set = attributes[:'service_parameters_set']
       end
 
-      if attributes.has_key?(:'region')
-        self.region = attributes[:'region']
+      if attributes.has_key?(:'source_region')
+        self.source_region = attributes[:'source_region']
+      end
+
+      if attributes.has_key?(:'subscription')
+        self.subscription = attributes[:'subscription']
       end
 
     end
@@ -137,7 +145,8 @@ module TopologicalInventory::IngressApi::Client
           resource_timestamp == o.resource_timestamp &&
           service_offering == o.service_offering &&
           service_parameters_set == o.service_parameters_set &&
-          region == o.region
+          source_region == o.source_region &&
+          subscription == o.subscription
     end
 
     # @see the `==` method
@@ -149,7 +158,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, source_created_at, source_deleted_at, resource_timestamp, service_offering, service_parameters_set, region].hash
+      [source_ref, name, source_created_at, source_deleted_at, resource_timestamp, service_offering, service_parameters_set, source_region, subscription].hash
     end
 
     # Builds the object from hash
