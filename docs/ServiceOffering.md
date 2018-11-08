@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **description** | **String** |  | [optional] 
 **source_created_at** | **DateTime** |  | [optional] 
 **source_deleted_at** | **DateTime** |  | [optional] 
+**resource_timestamp** | **DateTime** |  | [optional] 
 
 
