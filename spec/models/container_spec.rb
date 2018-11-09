@@ -62,13 +62,7 @@ describe 'Container' do
     end
   end
 
-  describe 'test attribute "source_created_at"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  describe 'test attribute "source_deleted_at"' do
+  describe 'test attribute "memory_request"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

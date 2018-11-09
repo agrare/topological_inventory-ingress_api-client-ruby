@@ -25,9 +25,7 @@ module TopologicalInventory::IngressApi::Client
 
     attr_accessor :memory_limit
 
-    attr_accessor :source_created_at
-
-    attr_accessor :source_deleted_at
+    attr_accessor :memory_request
 
     attr_accessor :resource_timestamp
 
@@ -40,8 +38,7 @@ module TopologicalInventory::IngressApi::Client
         :'cpu_limit' => :'cpu_limit',
         :'cpu_request' => :'cpu_request',
         :'memory_limit' => :'memory_limit',
-        :'source_created_at' => :'source_created_at',
-        :'source_deleted_at' => :'source_deleted_at',
+        :'memory_request' => :'memory_request',
         :'resource_timestamp' => :'resource_timestamp'
       }
     end
@@ -53,9 +50,8 @@ module TopologicalInventory::IngressApi::Client
         :'name' => :'String',
         :'cpu_limit' => :'Float',
         :'cpu_request' => :'Float',
-        :'memory_limit' => :'Float',
-        :'source_created_at' => :'DateTime',
-        :'source_deleted_at' => :'DateTime',
+        :'memory_limit' => :'Integer',
+        :'memory_request' => :'Integer',
         :'resource_timestamp' => :'DateTime'
       }
     end
@@ -88,12 +84,8 @@ module TopologicalInventory::IngressApi::Client
         self.memory_limit = attributes[:'memory_limit']
       end
 
-      if attributes.has_key?(:'source_created_at')
-        self.source_created_at = attributes[:'source_created_at']
-      end
-
-      if attributes.has_key?(:'source_deleted_at')
-        self.source_deleted_at = attributes[:'source_deleted_at']
+      if attributes.has_key?(:'memory_request')
+        self.memory_limit = attributes[:'memory_request']
       end
 
       if attributes.has_key?(:'resource_timestamp')
@@ -135,8 +127,7 @@ module TopologicalInventory::IngressApi::Client
           cpu_limit == o.cpu_limit &&
           cpu_request == o.cpu_request &&
           memory_limit == o.memory_limit &&
-          source_created_at == o.source_created_at &&
-          source_deleted_at == o.source_deleted_at &&
+          memory_request == o.memory_request &&
           resource_timestamp == o.resource_timestamp
     end
 
@@ -149,7 +140,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [container_group, name, cpu_limit, cpu_request, memory_limit, source_created_at, source_deleted_at, resource_timestamp].hash
+      [container_group, name, cpu_limit, cpu_request, memory_limit, memory_request, resource_timestamp].hash
     end
 
     # Builds the object from hash
