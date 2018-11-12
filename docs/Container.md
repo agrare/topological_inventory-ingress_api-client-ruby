@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **cpu_limit** | **Float** |  | [optional] 
 **cpu_request** | **Float** |  | [optional] 
-**memory_limit** | **Float** |  | [optional] 
-**memory_request** | **Float** |  | [optional] 
+**memory_limit** | **Integer** |  | [optional] 
+**memory_request** | **Integer** |  | [optional] 
 **resource_timestamp** | **DateTime** |  | [optional] 
 
 

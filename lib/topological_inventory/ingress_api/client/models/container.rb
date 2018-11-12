@@ -85,7 +85,7 @@ module TopologicalInventory::IngressApi::Client
       end
 
       if attributes.has_key?(:'memory_request')
-        self.memory_limit = attributes[:'memory_request']
+        self.memory_request = attributes[:'memory_request']
       end
 
       if attributes.has_key?(:'resource_timestamp')
