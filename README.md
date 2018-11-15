@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
  - [TopologicalInventory::IngressApi::Client::InventoryCollection](docs/InventoryCollection.md)
  - [TopologicalInventory::IngressApi::Client::InventoryObject](docs/InventoryObject.md)
  - [TopologicalInventory::IngressApi::Client::InventoryObjectLazy](docs/InventoryObjectLazy.md)
+ - [TopologicalInventory::IngressApi::Client::OrchestrationStack](docs/OrchestrationStack.md)
  - [TopologicalInventory::IngressApi::Client::Schema](docs/Schema.md)
  - [TopologicalInventory::IngressApi::Client::ServiceInstance](docs/ServiceInstance.md)
  - [TopologicalInventory::IngressApi::Client::ServiceOffering](docs/ServiceOffering.md)
@@ -104,6 +105,7 @@ Class | Method | HTTP request | Description
  - [TopologicalInventory::IngressApi::Client::Source](docs/Source.md)
  - [TopologicalInventory::IngressApi::Client::SourceRegion](docs/SourceRegion.md)
  - [TopologicalInventory::IngressApi::Client::Subscription](docs/Subscription.md)
+ - [TopologicalInventory::IngressApi::Client::Vm](docs/Vm.md)
 
 
 ## Documentation for Authorization
