@@ -25,6 +25,8 @@ module TopologicalInventory::IngressApi::Client
 
     attr_accessor :memory
 
+    attr_accessor :lives_on
+
     attr_accessor :source_created_at
 
     attr_accessor :source_deleted_at
@@ -40,6 +42,7 @@ module TopologicalInventory::IngressApi::Client
         :'name' => :'name',
         :'cpus' => :'cpus',
         :'memory' => :'memory',
+        :'lives_on' => :'lives_on',
         :'source_created_at' => :'source_created_at',
         :'source_deleted_at' => :'source_deleted_at',
         :'resource_timestamp' => :'resource_timestamp'
@@ -54,6 +57,7 @@ module TopologicalInventory::IngressApi::Client
         :'name' => :'String',
         :'cpus' => :'Integer',
         :'memory' => :'Integer',
+        :'lives_on' => :'InventoryObjectLazy',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
         :'resource_timestamp' => :'DateTime'
@@ -86,6 +90,10 @@ module TopologicalInventory::IngressApi::Client
 
       if attributes.has_key?(:'memory')
         self.memory = attributes[:'memory']
+      end
+
+      if attributes.has_key?(:'lives_on')
+        self.lives_on = attributes[:'lives_on']
       end
 
       if attributes.has_key?(:'source_created_at')
@@ -130,6 +138,7 @@ module TopologicalInventory::IngressApi::Client
           name == o.name &&
           cpus == o.cpus &&
           memory == o.memory &&
+          lives_on == o.lives_on &&
           source_created_at == o.source_created_at &&
           source_deleted_at == o.source_deleted_at &&
           resource_timestamp == o.resource_timestamp
@@ -144,7 +153,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, resource_version, name, cpus, memory, source_created_at, source_deleted_at, resource_timestamp].hash
+      [source_ref, resource_version, name, cpus, memory, lives_on, source_created_at, source_deleted_at, resource_timestamp].hash
     end
 
     # Builds the object from hash

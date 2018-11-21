@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **cpus** | **Integer** |  | [optional] 
 **memory** | **Integer** |  | [optional] 
+**lives_on** | [**InventoryObjectLazy**](InventoryObjectLazy.md) |  | [optional] 
 **source_created_at** | **DateTime** |  | [optional] 
 **source_deleted_at** | **DateTime** |  | [optional] 
 **resource_timestamp** | **DateTime** |  | [optional] 
