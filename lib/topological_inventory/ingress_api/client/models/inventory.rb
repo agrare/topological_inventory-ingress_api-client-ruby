@@ -21,6 +21,14 @@ module TopologicalInventory::IngressApi::Client
 
     attr_accessor :source
 
+    attr_accessor :refresh_state_uuid
+
+    attr_accessor :refresh_state_part_uuid
+
+    attr_accessor :total_parts
+
+    attr_accessor :sweep_scope
+
     attr_accessor :collections
 
 
@@ -30,6 +38,10 @@ module TopologicalInventory::IngressApi::Client
         :'name' => :'name',
         :'schema' => :'schema',
         :'source' => :'source',
+        :'refresh_state_uuid' => :'refresh_state_uuid',
+        :'refresh_state_part_uuid' => :'refresh_state_part_uuid',
+        :'total_parts' => :'total_parts',
+        :'sweep_scope' => :'sweep_scope',
         :'collections' => :'collections'
       }
     end
@@ -40,6 +52,10 @@ module TopologicalInventory::IngressApi::Client
         :'name' => :'String',
         :'schema' => :'Schema',
         :'source' => :'Source',
+        :'refresh_state_uuid' => :'String',
+        :'refresh_state_part_uuid' => :'String',
+        :'total_parts' => :'Integer',
+        :'sweep_scope' => :'Array<String>',
         :'collections' => :'Array<InventoryCollection>'
       }
     end
@@ -62,6 +78,24 @@ module TopologicalInventory::IngressApi::Client
 
       if attributes.has_key?(:'source')
         self.source = attributes[:'source']
+      end
+
+      if attributes.has_key?(:'refresh_state_uuid')
+        self.refresh_state_uuid = attributes[:'refresh_state_uuid']
+      end
+
+      if attributes.has_key?(:'refresh_state_part_uuid')
+        self.refresh_state_part_uuid = attributes[:'refresh_state_part_uuid']
+      end
+
+      if attributes.has_key?(:'total_parts')
+        self.total_parts = attributes[:'total_parts']
+      end
+
+      if attributes.has_key?(:'sweep_scope')
+        if (value = attributes[:'sweep_scope']).is_a?(Array)
+          self.sweep_scope = value
+        end
       end
 
       if attributes.has_key?(:'collections')
@@ -103,6 +137,10 @@ module TopologicalInventory::IngressApi::Client
           name == o.name &&
           schema == o.schema &&
           source == o.source &&
+          refresh_state_uuid == o.refresh_state_uuid &&
+          refresh_state_part_uuid == o.refresh_state_part_uuid &&
+          total_parts == o.total_parts &&
+          sweep_scope == o.sweep_scope &&
           collections == o.collections
     end
 
@@ -115,7 +153,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, schema, source, collections].hash
+      [name, schema, source, refresh_state_uuid, refresh_state_part_uuid, total_parts, sweep_scope, collections].hash
     end
 
     # Builds the object from hash
