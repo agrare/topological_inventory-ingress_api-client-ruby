@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
 
  - [TopologicalInventory::IngressApi::Client::Container](docs/Container.md)
  - [TopologicalInventory::IngressApi::Client::ContainerGroup](docs/ContainerGroup.md)
+ - [TopologicalInventory::IngressApi::Client::ContainerImage](docs/ContainerImage.md)
  - [TopologicalInventory::IngressApi::Client::ContainerNode](docs/ContainerNode.md)
  - [TopologicalInventory::IngressApi::Client::ContainerProject](docs/ContainerProject.md)
  - [TopologicalInventory::IngressApi::Client::ContainerTemplate](docs/ContainerTemplate.md)

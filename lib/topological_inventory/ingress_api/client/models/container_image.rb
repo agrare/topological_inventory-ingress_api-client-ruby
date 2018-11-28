@@ -14,20 +14,18 @@ require 'date'
 
 module TopologicalInventory::IngressApi::Client
 
-  class Container
-    attr_accessor :container_group
-
-    attr_accessor :container_image
+  class ContainerImage
+    attr_accessor :source_ref
 
     attr_accessor :name
 
-    attr_accessor :cpu_limit
+    attr_accessor :tag
 
-    attr_accessor :cpu_request
+    attr_accessor :resource_version
 
-    attr_accessor :memory_limit
+    attr_accessor :source_created_at
 
-    attr_accessor :memory_request
+    attr_accessor :source_deleted_at
 
     attr_accessor :resource_timestamp
 
@@ -35,13 +33,12 @@ module TopologicalInventory::IngressApi::Client
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'container_group' => :'container_group',
-        :'container_image' => :'container_image',
+        :'source_ref' => :'source_ref',
         :'name' => :'name',
-        :'cpu_limit' => :'cpu_limit',
-        :'cpu_request' => :'cpu_request',
-        :'memory_limit' => :'memory_limit',
-        :'memory_request' => :'memory_request',
+        :'tag' => :'tag',
+        :'resource_version' => :'resource_version',
+        :'source_created_at' => :'source_created_at',
+        :'source_deleted_at' => :'source_deleted_at',
         :'resource_timestamp' => :'resource_timestamp'
       }
     end
@@ -49,13 +46,12 @@ module TopologicalInventory::IngressApi::Client
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'container_group' => :'InventoryObjectLazy',
-        :'container_image' => :'InventoryObjectLazy',
+        :'source_ref' => :'String',
         :'name' => :'String',
-        :'cpu_limit' => :'Float',
-        :'cpu_request' => :'Float',
-        :'memory_limit' => :'Integer',
-        :'memory_request' => :'Integer',
+        :'tag' => :'String',
+        :'resource_version' => :'String',
+        :'source_created_at' => :'DateTime',
+        :'source_deleted_at' => :'DateTime',
         :'resource_timestamp' => :'DateTime'
       }
     end
@@ -68,32 +64,28 @@ module TopologicalInventory::IngressApi::Client
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'container_group')
-        self.container_group = attributes[:'container_group']
-      end
-
-      if attributes.has_key?(:'container_image')
-        self.container_image = attributes[:'container_image']
+      if attributes.has_key?(:'source_ref')
+        self.source_ref = attributes[:'source_ref']
       end
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'cpu_limit')
-        self.cpu_limit = attributes[:'cpu_limit']
+      if attributes.has_key?(:'tag')
+        self.tag = attributes[:'tag']
       end
 
-      if attributes.has_key?(:'cpu_request')
-        self.cpu_request = attributes[:'cpu_request']
+      if attributes.has_key?(:'resource_version')
+        self.resource_version = attributes[:'resource_version']
       end
 
-      if attributes.has_key?(:'memory_limit')
-        self.memory_limit = attributes[:'memory_limit']
+      if attributes.has_key?(:'source_created_at')
+        self.source_created_at = attributes[:'source_created_at']
       end
 
-      if attributes.has_key?(:'memory_request')
-        self.memory_request = attributes[:'memory_request']
+      if attributes.has_key?(:'source_deleted_at')
+        self.source_deleted_at = attributes[:'source_deleted_at']
       end
 
       if attributes.has_key?(:'resource_timestamp')
@@ -106,12 +98,8 @@ module TopologicalInventory::IngressApi::Client
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @container_group.nil?
-        invalid_properties.push("invalid value for 'container_group', container_group cannot be nil.")
-      end
-
-      if @name.nil?
-        invalid_properties.push("invalid value for 'name', name cannot be nil.")
+      if @source_ref.nil?
+        invalid_properties.push("invalid value for 'source_ref', source_ref cannot be nil.")
       end
 
       return invalid_properties
@@ -120,8 +108,7 @@ module TopologicalInventory::IngressApi::Client
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @container_group.nil?
-      return false if @name.nil?
+      return false if @source_ref.nil?
       return true
     end
 
@@ -130,13 +117,12 @@ module TopologicalInventory::IngressApi::Client
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          container_group == o.container_group &&
-          container_image == o.container_image &&
+          source_ref == o.source_ref &&
           name == o.name &&
-          cpu_limit == o.cpu_limit &&
-          cpu_request == o.cpu_request &&
-          memory_limit == o.memory_limit &&
-          memory_request == o.memory_request &&
+          tag == o.tag &&
+          resource_version == o.resource_version &&
+          source_created_at == o.source_created_at &&
+          source_deleted_at == o.source_deleted_at &&
           resource_timestamp == o.resource_timestamp
     end
 
@@ -149,7 +135,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [container_group, container_image, name, cpu_limit, cpu_request, memory_limit, memory_request, resource_timestamp].hash
+      [source_ref, name, tag, resource_version, source_created_at, source_deleted_at, resource_timestamp].hash
     end
 
     # Builds the object from hash

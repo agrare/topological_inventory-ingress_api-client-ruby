@@ -19,6 +19,7 @@ require 'topological_inventory/ingress_api/client/configuration'
 # Models
 require 'topological_inventory/ingress_api/client/models/container'
 require 'topological_inventory/ingress_api/client/models/container_group'
+require 'topological_inventory/ingress_api/client/models/container_image'
 require 'topological_inventory/ingress_api/client/models/container_node'
 require 'topological_inventory/ingress_api/client/models/container_project'
 require 'topological_inventory/ingress_api/client/models/container_template'
