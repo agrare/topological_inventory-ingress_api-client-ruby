@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **source_created_at** | **DateTime** |  | [optional] 
 **source_deleted_at** | **DateTime** |  | [optional] 
 **resource_timestamp** | **DateTime** |  | [optional] 
+**tags** | **Array&lt;String&gt;** |  | [optional] 
 **source_region** | [**InventoryObjectLazy**](InventoryObjectLazy.md) |  | [optional] 
 **subscription** | [**InventoryObjectLazy**](InventoryObjectLazy.md) |  | [optional] 
 

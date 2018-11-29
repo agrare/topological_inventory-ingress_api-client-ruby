@@ -27,6 +27,8 @@ module TopologicalInventory::IngressApi::Client
 
     attr_accessor :resource_timestamp
 
+    attr_accessor :tags
+
     attr_accessor :source_region
 
     attr_accessor :subscription
@@ -41,6 +43,7 @@ module TopologicalInventory::IngressApi::Client
         :'source_created_at' => :'source_created_at',
         :'source_deleted_at' => :'source_deleted_at',
         :'resource_timestamp' => :'resource_timestamp',
+        :'tags' => :'tags',
         :'source_region' => :'source_region',
         :'subscription' => :'subscription'
       }
@@ -55,6 +58,7 @@ module TopologicalInventory::IngressApi::Client
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
         :'resource_timestamp' => :'DateTime',
+        :'tags' => :'Array<String>',
         :'source_region' => :'InventoryObjectLazy',
         :'subscription' => :'InventoryObjectLazy'
       }
@@ -90,6 +94,12 @@ module TopologicalInventory::IngressApi::Client
 
       if attributes.has_key?(:'resource_timestamp')
         self.resource_timestamp = attributes[:'resource_timestamp']
+      end
+
+      if attributes.has_key?(:'tags')
+        if (value = attributes[:'tags']).is_a?(Array)
+          self.tags = value
+        end
       end
 
       if attributes.has_key?(:'source_region')
@@ -131,6 +141,7 @@ module TopologicalInventory::IngressApi::Client
           source_created_at == o.source_created_at &&
           source_deleted_at == o.source_deleted_at &&
           resource_timestamp == o.resource_timestamp &&
+          tags == o.tags &&
           source_region == o.source_region &&
           subscription == o.subscription
     end
@@ -144,7 +155,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, description, source_created_at, source_deleted_at, resource_timestamp, source_region, subscription].hash
+      [source_ref, name, description, source_created_at, source_deleted_at, resource_timestamp, tags, source_region, subscription].hash
     end
 
     # Builds the object from hash
