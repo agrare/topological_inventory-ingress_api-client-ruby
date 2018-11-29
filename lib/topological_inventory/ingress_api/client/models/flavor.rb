@@ -14,50 +14,23 @@ require 'date'
 
 module TopologicalInventory::IngressApi::Client
 
-  class Vm
+  class Flavor
     attr_accessor :source_ref
-
-    attr_accessor :uid_ems
 
     attr_accessor :name
 
-    attr_accessor :hostname
-
-    attr_accessor :description
-
-    attr_accessor :power_state
-
-    attr_accessor :cpus
-
-    attr_accessor :memory
-
     attr_accessor :extra
 
-    attr_accessor :source_created_at
-
-    attr_accessor :source_deleted_at
-
     attr_accessor :resource_timestamp
-
-    attr_accessor :flavor
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'source_ref' => :'source_ref',
-        :'uid_ems' => :'uid_ems',
         :'name' => :'name',
-        :'hostname' => :'hostname',
-        :'description' => :'description',
-        :'power_state' => :'power_state',
-        :'cpus' => :'cpus',
-        :'memory' => :'memory',
         :'extra' => :'extra',
-        :'source_created_at' => :'source_created_at',
-        :'source_deleted_at' => :'source_deleted_at',
-        :'resource_timestamp' => :'resource_timestamp',
-        :'flavor' => :'flavor'
+        :'resource_timestamp' => :'resource_timestamp'
       }
     end
 
@@ -65,18 +38,9 @@ module TopologicalInventory::IngressApi::Client
     def self.swagger_types
       {
         :'source_ref' => :'String',
-        :'uid_ems' => :'String',
         :'name' => :'String',
-        :'hostname' => :'String',
-        :'description' => :'String',
-        :'power_state' => :'String',
-        :'cpus' => :'Integer',
-        :'memory' => :'Integer',
         :'extra' => :'Object',
-        :'source_created_at' => :'DateTime',
-        :'source_deleted_at' => :'DateTime',
-        :'resource_timestamp' => :'DateTime',
-        :'flavor' => :'InventoryObjectLazy'
+        :'resource_timestamp' => :'DateTime'
       }
     end
 
@@ -92,52 +56,16 @@ module TopologicalInventory::IngressApi::Client
         self.source_ref = attributes[:'source_ref']
       end
 
-      if attributes.has_key?(:'uid_ems')
-        self.uid_ems = attributes[:'uid_ems']
-      end
-
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'hostname')
-        self.hostname = attributes[:'hostname']
-      end
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'power_state')
-        self.power_state = attributes[:'power_state']
-      end
-
-      if attributes.has_key?(:'cpus')
-        self.cpus = attributes[:'cpus']
-      end
-
-      if attributes.has_key?(:'memory')
-        self.memory = attributes[:'memory']
       end
 
       if attributes.has_key?(:'extra')
         self.extra = attributes[:'extra']
       end
 
-      if attributes.has_key?(:'source_created_at')
-        self.source_created_at = attributes[:'source_created_at']
-      end
-
-      if attributes.has_key?(:'source_deleted_at')
-        self.source_deleted_at = attributes[:'source_deleted_at']
-      end
-
       if attributes.has_key?(:'resource_timestamp')
         self.resource_timestamp = attributes[:'resource_timestamp']
-      end
-
-      if attributes.has_key?(:'flavor')
-        self.flavor = attributes[:'flavor']
       end
 
     end
@@ -166,18 +94,9 @@ module TopologicalInventory::IngressApi::Client
       return true if self.equal?(o)
       self.class == o.class &&
           source_ref == o.source_ref &&
-          uid_ems == o.uid_ems &&
           name == o.name &&
-          hostname == o.hostname &&
-          description == o.description &&
-          power_state == o.power_state &&
-          cpus == o.cpus &&
-          memory == o.memory &&
           extra == o.extra &&
-          source_created_at == o.source_created_at &&
-          source_deleted_at == o.source_deleted_at &&
-          resource_timestamp == o.resource_timestamp &&
-          flavor == o.flavor
+          resource_timestamp == o.resource_timestamp
     end
 
     # @see the `==` method
@@ -189,7 +108,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, uid_ems, name, hostname, description, power_state, cpus, memory, extra, source_created_at, source_deleted_at, resource_timestamp, flavor].hash
+      [source_ref, name, extra, resource_timestamp].hash
     end
 
     # Builds the object from hash
