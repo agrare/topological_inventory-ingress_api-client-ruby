@@ -37,6 +37,9 @@ require 'topological_inventory/ingress_api/client/models/source'
 require 'topological_inventory/ingress_api/client/models/source_region'
 require 'topological_inventory/ingress_api/client/models/subscription'
 require 'topological_inventory/ingress_api/client/models/vm'
+require 'topological_inventory/ingress_api/client/models/volume'
+require 'topological_inventory/ingress_api/client/models/volume_attachment'
+require 'topological_inventory/ingress_api/client/models/volume_type'
 
 # APIs
 require 'topological_inventory/ingress_api/client/api/admins_api'
