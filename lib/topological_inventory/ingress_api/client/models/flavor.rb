@@ -15,12 +15,28 @@ require 'date'
 module TopologicalInventory::IngressApi::Client
 
   class Flavor
+    # Unique identifier of the entity.
     attr_accessor :source_ref
 
+    # Name of the flavor.
     attr_accessor :name
 
+    # Size of one local disk in bytes.
+    attr_accessor :disk_size
+
+    # Total count of disks. Total storage capacity of entity is then (disk_size * disk_count).
+    attr_accessor :disk_count
+
+    # Memory in bytes.
+    attr_accessor :memory
+
+    # Number of cpus of the entity (vcpus for virtualized, cpus for baremetal).
+    attr_accessor :cpus
+
+    # Free form document for storing SourceType's specific attributes.
     attr_accessor :extra
 
+    # Timestamp marking age of the data.
     attr_accessor :resource_timestamp
 
 
@@ -29,6 +45,10 @@ module TopologicalInventory::IngressApi::Client
       {
         :'source_ref' => :'source_ref',
         :'name' => :'name',
+        :'disk_size' => :'disk_size',
+        :'disk_count' => :'disk_count',
+        :'memory' => :'memory',
+        :'cpus' => :'cpus',
         :'extra' => :'extra',
         :'resource_timestamp' => :'resource_timestamp'
       }
@@ -39,6 +59,10 @@ module TopologicalInventory::IngressApi::Client
       {
         :'source_ref' => :'String',
         :'name' => :'String',
+        :'disk_size' => :'Integer',
+        :'disk_count' => :'Integer',
+        :'memory' => :'Integer',
+        :'cpus' => :'Integer',
         :'extra' => :'Object',
         :'resource_timestamp' => :'DateTime'
       }
@@ -58,6 +82,22 @@ module TopologicalInventory::IngressApi::Client
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'disk_size')
+        self.disk_size = attributes[:'disk_size']
+      end
+
+      if attributes.has_key?(:'disk_count')
+        self.disk_count = attributes[:'disk_count']
+      end
+
+      if attributes.has_key?(:'memory')
+        self.memory = attributes[:'memory']
+      end
+
+      if attributes.has_key?(:'cpus')
+        self.cpus = attributes[:'cpus']
       end
 
       if attributes.has_key?(:'extra')
@@ -95,6 +135,10 @@ module TopologicalInventory::IngressApi::Client
       self.class == o.class &&
           source_ref == o.source_ref &&
           name == o.name &&
+          disk_size == o.disk_size &&
+          disk_count == o.disk_count &&
+          memory == o.memory &&
+          cpus == o.cpus &&
           extra == o.extra &&
           resource_timestamp == o.resource_timestamp
     end
@@ -108,7 +152,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, extra, resource_timestamp].hash
+      [source_ref, name, disk_size, disk_count, memory, cpus, extra, resource_timestamp].hash
     end
 
     # Builds the object from hash
