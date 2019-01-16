@@ -20,6 +20,18 @@ module TopologicalInventory::IngressApi::Client
 
     attr_accessor :description
 
+    attr_accessor :display_name
+
+    attr_accessor :documentation_url
+
+    attr_accessor :long_description
+
+    attr_accessor :distributor
+
+    attr_accessor :support_url
+
+    attr_accessor :icon_data
+
     attr_accessor :source_created_at
 
     attr_accessor :source_deleted_at
@@ -36,6 +48,12 @@ module TopologicalInventory::IngressApi::Client
         :'source_ref' => :'source_ref',
         :'name' => :'name',
         :'description' => :'description',
+        :'display_name' => :'display_name',
+        :'documentation_url' => :'documentation_url',
+        :'long_description' => :'long_description',
+        :'distributor' => :'distributor',
+        :'support_url' => :'support_url',
+        :'icon_data' => :'icon_data',
         :'source_created_at' => :'source_created_at',
         :'source_deleted_at' => :'source_deleted_at',
         :'resource_timestamp' => :'resource_timestamp',
@@ -50,6 +68,12 @@ module TopologicalInventory::IngressApi::Client
         :'source_ref' => :'String',
         :'name' => :'String',
         :'description' => :'String',
+        :'display_name' => :'String',
+        :'documentation_url' => :'String',
+        :'long_description' => :'String',
+        :'distributor' => :'String',
+        :'support_url' => :'String',
+        :'icon_data' => :'String',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
         :'resource_timestamp' => :'DateTime',
@@ -76,6 +100,30 @@ module TopologicalInventory::IngressApi::Client
 
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
+      end
+
+      if attributes.has_key?(:'display_name')
+        self.display_name = attributes[:'display_name']
+      end
+
+      if attributes.has_key?(:'documentation_url')
+        self.documentation_url = attributes[:'documentation_url']
+      end
+
+      if attributes.has_key?(:'long_description')
+        self.long_description = attributes[:'long_description']
+      end
+
+      if attributes.has_key?(:'distributor')
+        self.distributor = attributes[:'distributor']
+      end
+
+      if attributes.has_key?(:'support_url')
+        self.support_url = attributes[:'support_url']
+      end
+
+      if attributes.has_key?(:'icon_data')
+        self.icon_data = attributes[:'icon_data']
       end
 
       if attributes.has_key?(:'source_created_at')
@@ -125,6 +173,12 @@ module TopologicalInventory::IngressApi::Client
           source_ref == o.source_ref &&
           name == o.name &&
           description == o.description &&
+          display_name == o.display_name &&
+          documentation_url == o.documentation_url &&
+          long_description == o.long_description &&
+          distributor == o.distributor &&
+          support_url == o.support_url &&
+          icon_data == o.icon_data &&
           source_created_at == o.source_created_at &&
           source_deleted_at == o.source_deleted_at &&
           resource_timestamp == o.resource_timestamp &&
@@ -141,7 +195,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, description, source_created_at, source_deleted_at, resource_timestamp, source_region, subscription].hash
+      [source_ref, name, description, display_name, documentation_url, long_description, distributor, support_url, icon_data, source_created_at, source_deleted_at, resource_timestamp, source_region, subscription].hash
     end
 
     # Builds the object from hash
