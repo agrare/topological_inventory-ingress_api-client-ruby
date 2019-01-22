@@ -13,68 +13,28 @@ Swagger Codegen version: 2.4.0
 require 'date'
 
 module TopologicalInventory::IngressApi::Client
-  class ServiceOffering
-    attr_accessor :source_ref
+  class ServiceOfferingTag
+    attr_accessor :service_offering
 
-    attr_accessor :name
+    attr_accessor :tag
 
-    attr_accessor :description
-
-    attr_accessor :display_name
-
-    attr_accessor :documentation_url
-
-    attr_accessor :long_description
-
-    attr_accessor :distributor
-
-    attr_accessor :support_url
-
-    attr_accessor :source_created_at
-
-    attr_accessor :source_deleted_at
-
-    attr_accessor :resource_timestamp
-
-    attr_accessor :source_region
-
-    attr_accessor :subscription
+    attr_accessor :value
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'source_ref' => :'source_ref',
-        :'name' => :'name',
-        :'description' => :'description',
-        :'display_name' => :'display_name',
-        :'documentation_url' => :'documentation_url',
-        :'long_description' => :'long_description',
-        :'distributor' => :'distributor',
-        :'support_url' => :'support_url',
-        :'source_created_at' => :'source_created_at',
-        :'source_deleted_at' => :'source_deleted_at',
-        :'resource_timestamp' => :'resource_timestamp',
-        :'source_region' => :'source_region',
-        :'subscription' => :'subscription'
+        :'service_offering' => :'service_offering',
+        :'tag' => :'tag',
+        :'value' => :'value'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'source_ref' => :'String',
-        :'name' => :'String',
-        :'description' => :'String',
-        :'display_name' => :'String',
-        :'documentation_url' => :'String',
-        :'long_description' => :'String',
-        :'distributor' => :'String',
-        :'support_url' => :'String',
-        :'source_created_at' => :'DateTime',
-        :'source_deleted_at' => :'DateTime',
-        :'resource_timestamp' => :'DateTime',
-        :'source_region' => :'InventoryObjectLazy',
-        :'subscription' => :'InventoryObjectLazy'
+        :'service_offering' => :'InventoryObjectLazy',
+        :'tag' => :'InventoryObjectLazy',
+        :'value' => :'String'
       }
     end
 
@@ -86,56 +46,16 @@ module TopologicalInventory::IngressApi::Client
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'source_ref')
-        self.source_ref = attributes[:'source_ref']
+      if attributes.has_key?(:'service_offering')
+        self.service_offering = attributes[:'service_offering']
       end
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'tag')
+        self.tag = attributes[:'tag']
       end
 
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'display_name')
-        self.display_name = attributes[:'display_name']
-      end
-
-      if attributes.has_key?(:'documentation_url')
-        self.documentation_url = attributes[:'documentation_url']
-      end
-
-      if attributes.has_key?(:'long_description')
-        self.long_description = attributes[:'long_description']
-      end
-
-      if attributes.has_key?(:'distributor')
-        self.distributor = attributes[:'distributor']
-      end
-
-      if attributes.has_key?(:'support_url')
-        self.support_url = attributes[:'support_url']
-      end
-
-      if attributes.has_key?(:'source_created_at')
-        self.source_created_at = attributes[:'source_created_at']
-      end
-
-      if attributes.has_key?(:'source_deleted_at')
-        self.source_deleted_at = attributes[:'source_deleted_at']
-      end
-
-      if attributes.has_key?(:'resource_timestamp')
-        self.resource_timestamp = attributes[:'resource_timestamp']
-      end
-
-      if attributes.has_key?(:'source_region')
-        self.source_region = attributes[:'source_region']
-      end
-
-      if attributes.has_key?(:'subscription')
-        self.subscription = attributes[:'subscription']
+      if attributes.has_key?(:'value')
+        self.value = attributes[:'value']
       end
     end
 
@@ -143,8 +63,12 @@ module TopologicalInventory::IngressApi::Client
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @source_ref.nil?
-        invalid_properties.push('invalid value for "source_ref", source_ref cannot be nil.')
+      if @service_offering.nil?
+        invalid_properties.push('invalid value for "service_offering", service_offering cannot be nil.')
+      end
+
+      if @tag.nil?
+        invalid_properties.push('invalid value for "tag", tag cannot be nil.')
       end
 
       invalid_properties
@@ -153,7 +77,8 @@ module TopologicalInventory::IngressApi::Client
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @source_ref.nil?
+      return false if @service_offering.nil?
+      return false if @tag.nil?
       true
     end
 
@@ -162,19 +87,9 @@ module TopologicalInventory::IngressApi::Client
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          source_ref == o.source_ref &&
-          name == o.name &&
-          description == o.description &&
-          display_name == o.display_name &&
-          documentation_url == o.documentation_url &&
-          long_description == o.long_description &&
-          distributor == o.distributor &&
-          support_url == o.support_url &&
-          source_created_at == o.source_created_at &&
-          source_deleted_at == o.source_deleted_at &&
-          resource_timestamp == o.resource_timestamp &&
-          source_region == o.source_region &&
-          subscription == o.subscription
+          service_offering == o.service_offering &&
+          tag == o.tag &&
+          value == o.value
     end
 
     # @see the `==` method
@@ -186,7 +101,7 @@ module TopologicalInventory::IngressApi::Client
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, description, display_name, documentation_url, long_description, distributor, support_url, source_created_at, source_deleted_at, resource_timestamp, source_region, subscription].hash
+      [service_offering, tag, value].hash
     end
 
     # Builds the object from hash
