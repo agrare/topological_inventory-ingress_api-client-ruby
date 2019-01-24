@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::OrchestrationStack
+# TopologicalInventoryIngressApiClient::OrchestrationStack
 
 ## Properties
 Name | Type | Description | Notes

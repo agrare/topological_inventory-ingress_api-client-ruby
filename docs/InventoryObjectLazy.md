@@ -1,13 +1,13 @@
-# TopologicalInventory::IngressApi::Client::InventoryObjectLazy
+# TopologicalInventoryIngressApiClient::InventoryObjectLazy
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **inventory_collection_name** | **String** |  | 
-**reference** | **Object** |  | [optional] 
+**reference** | [**Object**](.md) |  | [optional] 
 **ref** | **String** |  | [optional] 
 **key** | **String** |  | [optional] 
-**default** | **Object** |  | [optional] 
+**default** | [**Object**](.md) |  | [optional] 
 **transform_nested_lazy_finds** | **BOOLEAN** |  | [optional] 
 
 

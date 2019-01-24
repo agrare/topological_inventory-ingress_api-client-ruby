@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::VmTag
+# TopologicalInventoryIngressApiClient::VmTag
 
 ## Properties
 Name | Type | Description | Notes

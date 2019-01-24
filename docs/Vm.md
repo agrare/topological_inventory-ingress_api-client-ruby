@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::Vm
+# TopologicalInventoryIngressApiClient::Vm
 
 ## Properties
 Name | Type | Description | Notes
@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **power_state** | **String** |  | [optional] 
 **cpus** | **Integer** |  | [optional] 
 **memory** | **Integer** |  | [optional] 
-**extra** | **Object** |  | [optional] 
+**extra** | [**Object**](.md) |  | [optional] 
 **source_created_at** | **DateTime** |  | [optional] 
 **source_deleted_at** | **DateTime** |  | [optional] 
 **resource_timestamp** | **DateTime** |  | [optional] 

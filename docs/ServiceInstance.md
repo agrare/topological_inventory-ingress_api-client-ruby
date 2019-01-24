@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::ServiceInstance
+# TopologicalInventoryIngressApiClient::ServiceInstance
 
 ## Properties
 Name | Type | Description | Notes

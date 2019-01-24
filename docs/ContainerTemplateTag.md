@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::ContainerTemplateTag
+# TopologicalInventoryIngressApiClient::ContainerTemplateTag
 
 ## Properties
 Name | Type | Description | Notes
