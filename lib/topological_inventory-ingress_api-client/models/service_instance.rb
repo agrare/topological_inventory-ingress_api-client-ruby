@@ -26,7 +26,7 @@ module TopologicalInventoryIngressApiClient
 
     attr_accessor :service_offering
 
-    attr_accessor :service_parameters_set
+    attr_accessor :service_plan
 
     attr_accessor :source_region
 
@@ -41,7 +41,7 @@ module TopologicalInventoryIngressApiClient
         :'source_deleted_at' => :'source_deleted_at',
         :'resource_timestamp' => :'resource_timestamp',
         :'service_offering' => :'service_offering',
-        :'service_parameters_set' => :'service_parameters_set',
+        :'service_plan' => :'service_plan',
         :'source_region' => :'source_region',
         :'subscription' => :'subscription'
       }
@@ -56,7 +56,7 @@ module TopologicalInventoryIngressApiClient
         :'source_deleted_at' => :'DateTime',
         :'resource_timestamp' => :'DateTime',
         :'service_offering' => :'InventoryObjectLazy',
-        :'service_parameters_set' => :'InventoryObjectLazy',
+        :'service_plan' => :'InventoryObjectLazy',
         :'source_region' => :'InventoryObjectLazy',
         :'subscription' => :'InventoryObjectLazy'
       }
@@ -101,8 +101,8 @@ module TopologicalInventoryIngressApiClient
         self.service_offering = attributes[:'service_offering']
       end
 
-      if attributes.has_key?(:'service_parameters_set')
-        self.service_parameters_set = attributes[:'service_parameters_set']
+      if attributes.has_key?(:'service_plan')
+        self.service_plan = attributes[:'service_plan']
       end
 
       if attributes.has_key?(:'source_region')
@@ -148,7 +148,7 @@ module TopologicalInventoryIngressApiClient
           source_deleted_at == o.source_deleted_at &&
           resource_timestamp == o.resource_timestamp &&
           service_offering == o.service_offering &&
-          service_parameters_set == o.service_parameters_set &&
+          service_plan == o.service_plan &&
           source_region == o.source_region &&
           subscription == o.subscription
     end
@@ -162,7 +162,7 @@ module TopologicalInventoryIngressApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, source_created_at, source_deleted_at, resource_timestamp, service_offering, service_parameters_set, source_region, subscription].hash
+      [source_ref, name, source_created_at, source_deleted_at, resource_timestamp, service_offering, service_plan, source_region, subscription].hash
     end
 
     # Builds the object from hash
