@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::DefaultApi
+# TopologicalInventoryIngressApiClient::DefaultApi
 
 All URIs are relative to *http://localhost/topological_inventory/ingress_api/0.0.2*
 
@@ -18,24 +18,23 @@ Submits a payload to be persisted to the database
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'topological_inventory-ingress_api-client'
 # setup authorization
-TopologicalInventory::IngressApi::Client.configure do |config|
+TopologicalInventoryIngressApiClient.configure do |config|
   # Configure HTTP basic authorization: UserSecurity
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = TopologicalInventory::IngressApi::Client::DefaultApi.new
-
-opts = { 
-  inventory: TopologicalInventory::IngressApi::Client::Inventory.new # Inventory | Inventory payload
+api_instance = TopologicalInventoryIngressApiClient::DefaultApi.new
+opts = {
+  inventory: TopologicalInventoryIngressApiClient::Inventory.new # Inventory | Inventory payload
 }
 
 begin
   #save inventory
   api_instance.save_inventory(opts)
-rescue TopologicalInventory::IngressApi::Client::ApiError => e
+rescue TopologicalInventoryIngressApiClient::ApiError => e
   puts "Exception when calling DefaultApi->save_inventory: #{e}"
 end
 ```
@@ -57,7 +56,7 @@ nil (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: Not defined
 
 
 
@@ -71,17 +70,16 @@ By passing in the appropriate options, you can search for available inventory sc
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'topological_inventory-ingress_api-client'
 # setup authorization
-TopologicalInventory::IngressApi::Client.configure do |config|
+TopologicalInventoryIngressApiClient.configure do |config|
   # Configure HTTP basic authorization: UserSecurity
   config.username = 'YOUR USERNAME'
   config.password = 'YOUR PASSWORD'
 end
 
-api_instance = TopologicalInventory::IngressApi::Client::DefaultApi.new
-
-opts = { 
+api_instance = TopologicalInventoryIngressApiClient::DefaultApi.new
+opts = {
   search_string: 'search_string_example', # String | pass an optional search string for looking up schemas
   skip: 56, # Integer | number of records to skip for pagination
   limit: 56 # Integer | maximum number of records to return
@@ -91,7 +89,7 @@ begin
   #searches schemas
   result = api_instance.search_schemas(opts)
   p result
-rescue TopologicalInventory::IngressApi::Client::ApiError => e
+rescue TopologicalInventoryIngressApiClient::ApiError => e
   puts "Exception when calling DefaultApi->search_schemas: #{e}"
 end
 ```

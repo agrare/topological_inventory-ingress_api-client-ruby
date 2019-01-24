@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::Volume
+# TopologicalInventoryIngressApiClient::Volume
 
 ## Properties
 Name | Type | Description | Notes
@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | [optional] 
 **state** | **String** |  | [optional] 
 **size** | **Integer** |  | [optional] 
-**extra** | **Object** |  | [optional] 
+**extra** | [**Object**](.md) |  | [optional] 
 **source_created_at** | **DateTime** |  | [optional] 
 **source_deleted_at** | **DateTime** |  | [optional] 
 **resource_timestamp** | **DateTime** |  | [optional] 

@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::VolumeAttachment
+# TopologicalInventoryIngressApiClient::VolumeAttachment
 
 ## Properties
 Name | Type | Description | Notes

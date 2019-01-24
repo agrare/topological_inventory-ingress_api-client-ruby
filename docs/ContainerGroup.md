@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::ContainerGroup
+# TopologicalInventoryIngressApiClient::ContainerGroup
 
 ## Properties
 Name | Type | Description | Notes

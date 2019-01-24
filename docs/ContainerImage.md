@@ -1,4 +1,4 @@
-# TopologicalInventory::IngressApi::Client::ContainerImage
+# TopologicalInventoryIngressApiClient::ContainerImage
 
 ## Properties
 Name | Type | Description | Notes
