@@ -101,6 +101,7 @@ Class | Method | HTTP request | Description
  - [TopologicalInventoryIngressApiClient::Flavor](docs/Flavor.md)
  - [TopologicalInventoryIngressApiClient::Inventory](docs/Inventory.md)
  - [TopologicalInventoryIngressApiClient::InventoryCollection](docs/InventoryCollection.md)
+ - [TopologicalInventoryIngressApiClient::InventoryObject](docs/InventoryObject.md)
  - [TopologicalInventoryIngressApiClient::InventoryObjectLazy](docs/InventoryObjectLazy.md)
  - [TopologicalInventoryIngressApiClient::OrchestrationStack](docs/OrchestrationStack.md)
  - [TopologicalInventoryIngressApiClient::Schema](docs/Schema.md)
