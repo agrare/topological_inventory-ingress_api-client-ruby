@@ -13,78 +13,16 @@ OpenAPI Generator version: 3.3.4
 require 'date'
 
 module TopologicalInventoryIngressApiClient
-  class Volume
-    attr_accessor :source_ref
-
-    attr_accessor :name
-
-    attr_accessor :state
-
-    attr_accessor :size
-
-    attr_accessor :extra
-
-    attr_accessor :source_created_at
-
-    attr_accessor :source_deleted_at
-
-    attr_accessor :resource_timestamp
-
-    attr_accessor :volume_type
-
-    attr_accessor :source_region
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
-
+  class InventoryObject
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'source_ref' => :'source_ref',
-        :'name' => :'name',
-        :'state' => :'state',
-        :'size' => :'size',
-        :'extra' => :'extra',
-        :'source_created_at' => :'source_created_at',
-        :'source_deleted_at' => :'source_deleted_at',
-        :'resource_timestamp' => :'resource_timestamp',
-        :'volume_type' => :'volume_type',
-        :'source_region' => :'source_region'
       }
     end
 
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'source_ref' => :'String',
-        :'name' => :'String',
-        :'state' => :'String',
-        :'size' => :'Integer',
-        :'extra' => :'Object',
-        :'source_created_at' => :'DateTime',
-        :'source_deleted_at' => :'DateTime',
-        :'resource_timestamp' => :'DateTime',
-        :'volume_type' => :'InventoryObjectLazy',
-        :'source_region' => :'InventoryObjectLazy'
       }
     end
 
@@ -95,93 +33,26 @@ module TopologicalInventoryIngressApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
-
-      if attributes.has_key?(:'source_ref')
-        self.source_ref = attributes[:'source_ref']
-      end
-
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
-      end
-
-      if attributes.has_key?(:'state')
-        self.state = attributes[:'state']
-      end
-
-      if attributes.has_key?(:'size')
-        self.size = attributes[:'size']
-      end
-
-      if attributes.has_key?(:'extra')
-        self.extra = attributes[:'extra']
-      end
-
-      if attributes.has_key?(:'source_created_at')
-        self.source_created_at = attributes[:'source_created_at']
-      end
-
-      if attributes.has_key?(:'source_deleted_at')
-        self.source_deleted_at = attributes[:'source_deleted_at']
-      end
-
-      if attributes.has_key?(:'resource_timestamp')
-        self.resource_timestamp = attributes[:'resource_timestamp']
-      end
-
-      if attributes.has_key?(:'volume_type')
-        self.volume_type = attributes[:'volume_type']
-      end
-
-      if attributes.has_key?(:'source_region')
-        self.source_region = attributes[:'source_region']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      if @source_ref.nil?
-        invalid_properties.push('invalid value for "source_ref", source_ref cannot be nil.')
-      end
-
       invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @source_ref.nil?
-      state_validator = EnumAttributeValidator.new('String', ['creating', 'available', 'in-use', 'deleting', 'deleted', 'error', 'unknown'])
-      return false unless state_validator.valid?(@state)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] state Object to be assigned
-    def state=(state)
-      validator = EnumAttributeValidator.new('String', ['creating', 'available', 'in-use', 'deleting', 'deleted', 'error', 'unknown'])
-      unless validator.valid?(state)
-        fail ArgumentError, 'invalid value for "state", must be one of #{validator.allowable_values}.'
-      end
-      @state = state
     end
 
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class &&
-          source_ref == o.source_ref &&
-          name == o.name &&
-          state == o.state &&
-          size == o.size &&
-          extra == o.extra &&
-          source_created_at == o.source_created_at &&
-          source_deleted_at == o.source_deleted_at &&
-          resource_timestamp == o.resource_timestamp &&
-          volume_type == o.volume_type &&
-          source_region == o.source_region
+      self.class == o.class
     end
 
     # @see the `==` method
@@ -193,7 +64,7 @@ module TopologicalInventoryIngressApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, state, size, extra, source_created_at, source_deleted_at, resource_timestamp, volume_type, source_region].hash
+      [].hash
     end
 
     # Builds the object from hash
