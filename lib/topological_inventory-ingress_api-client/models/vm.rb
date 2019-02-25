@@ -30,6 +30,12 @@ module TopologicalInventoryIngressApiClient
 
     attr_accessor :memory
 
+    # Array of all MAC addresses of this Vm
+    attr_accessor :mac_addresses
+
+    # UUID of the host in host inventory
+    attr_accessor :host_inventory_uuid
+
     attr_accessor :extra
 
     attr_accessor :source_created_at
@@ -51,6 +57,8 @@ module TopologicalInventoryIngressApiClient
         :'power_state' => :'power_state',
         :'cpus' => :'cpus',
         :'memory' => :'memory',
+        :'mac_addresses' => :'mac_addresses',
+        :'host_inventory_uuid' => :'host_inventory_uuid',
         :'extra' => :'extra',
         :'source_created_at' => :'source_created_at',
         :'source_deleted_at' => :'source_deleted_at',
@@ -70,6 +78,8 @@ module TopologicalInventoryIngressApiClient
         :'power_state' => :'String',
         :'cpus' => :'Integer',
         :'memory' => :'Integer',
+        :'mac_addresses' => :'Array<String>',
+        :'host_inventory_uuid' => :'String',
         :'extra' => :'Object',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
@@ -116,6 +126,16 @@ module TopologicalInventoryIngressApiClient
 
       if attributes.has_key?(:'memory')
         self.memory = attributes[:'memory']
+      end
+
+      if attributes.has_key?(:'mac_addresses')
+        if (value = attributes[:'mac_addresses']).is_a?(Array)
+          self.mac_addresses = value
+        end
+      end
+
+      if attributes.has_key?(:'host_inventory_uuid')
+        self.host_inventory_uuid = attributes[:'host_inventory_uuid']
       end
 
       if attributes.has_key?(:'extra')
@@ -170,6 +190,8 @@ module TopologicalInventoryIngressApiClient
           power_state == o.power_state &&
           cpus == o.cpus &&
           memory == o.memory &&
+          mac_addresses == o.mac_addresses &&
+          host_inventory_uuid == o.host_inventory_uuid &&
           extra == o.extra &&
           source_created_at == o.source_created_at &&
           source_deleted_at == o.source_deleted_at &&
@@ -186,7 +208,7 @@ module TopologicalInventoryIngressApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, uid_ems, name, hostname, description, power_state, cpus, memory, extra, source_created_at, source_deleted_at, resource_timestamp, flavor].hash
+      [source_ref, uid_ems, name, hostname, description, power_state, cpus, memory, mac_addresses, host_inventory_uuid, extra, source_created_at, source_deleted_at, resource_timestamp, flavor].hash
     end
 
     # Builds the object from hash
