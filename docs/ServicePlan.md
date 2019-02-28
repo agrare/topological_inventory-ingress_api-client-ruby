@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **resource_version** | **String** |  | [optional] 
 **source_created_at** | **DateTime** |  | [optional] 
 **source_deleted_at** | **DateTime** |  | [optional] 
+**resource_timestamp** | **DateTime** |  | [optional] 
 **create_json_schema** | [**Object**](.md) |  | [optional] 
 **update_json_schema** | [**Object**](.md) |  | [optional] 
 **service_offering** | [**InventoryObjectLazy**](InventoryObjectLazy.md) |  | [optional] 
