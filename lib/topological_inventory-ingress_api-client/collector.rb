@@ -1,16 +1,12 @@
 require "active_support/inflector"
 require "concurrent"
 require "topological_inventory-ingress_api-client"
-
-require "topological_inventory-ingress_api-client/logging"
 require "topological_inventory-ingress_api-client/collector/inventory_collection_storage"
 require "topological_inventory-ingress_api-client/collector/inventory_collection_wrapper"
 require "topological_inventory-ingress_api-client/collector/parser"
 
 module TopologicalInventoryIngressApiClient
   class Collector
-    include Logging
-
     def initialize(source, default_limit: 1_000, poll_time: 30)
       self.collector_threads = Concurrent::Map.new
       self.finished          = Concurrent::AtomicBoolean.new(false)
@@ -71,16 +67,12 @@ module TopologicalInventoryIngressApiClient
     end
 
     def start_collector_thread(entity_type)
-      logger.info("Starting collector thread for #{entity_type}...")
       connection = connection_for_entity_type(entity_type)
       return if connection.nil?
 
-      # Thread.new do
-      collector_thread(connection, entity_type)
-        # end
-    rescue => err
-      logger.error(err)
-      nil
+      Thread.new do
+        collector_thread(connection, entity_type)
+      end
     end
 
     # Connection to endpoint for each entity type
@@ -104,7 +96,7 @@ module TopologicalInventoryIngressApiClient
       ingress_api_client.save_inventory(
         :inventory => TopologicalInventoryIngressApiClient::Inventory.new(
           :name                    => "OCP",
-          :schema                  => TopologicalInventoryIngressApiClient::Schema.new(:name => "Default"),
+          :schema                  => TopologicalInventoryIngressApiClient::Schema.new(:name => schema_name),
           :source                  => source,
           :collections             => collections,
           :refresh_state_uuid      => refresh_state_uuid,
@@ -117,7 +109,7 @@ module TopologicalInventoryIngressApiClient
       ingress_api_client.save_inventory(
         :inventory => TopologicalInventoryIngressApiClient::Inventory.new(
           :name               => "OCP",
-          :schema             => TopologicalInventoryIngressApiClient::Schema.new(:name => "Default"),
+          :schema             => TopologicalInventoryIngressApiClient::Schema.new(:name => schema_name),
           :source             => source,
           :collections        => [],
           :refresh_state_uuid => refresh_state_uuid,
@@ -125,6 +117,10 @@ module TopologicalInventoryIngressApiClient
           :sweep_scope        => sweep_scope,
         )
       )
+    end
+
+    def schema_name
+      "Default"
     end
 
     def ingress_api_client

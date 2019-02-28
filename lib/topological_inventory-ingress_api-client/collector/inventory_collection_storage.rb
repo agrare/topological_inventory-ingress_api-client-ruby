@@ -11,7 +11,7 @@ module TopologicalInventoryIngressApiClient
 
       # TODO: add custom properties like model_class
       def add_collection(name, overwrite: true)
-        return @data[name] if @data[name].present? && !overwrite
+        return @data[name] if !@data[name].nil? && !overwrite
 
         if ingress_api_model_exists?(name)
           @data[name] ||= TopologicalInventoryIngressApiClient::Collector::InventoryCollectionWrapper.new(:name => name)
