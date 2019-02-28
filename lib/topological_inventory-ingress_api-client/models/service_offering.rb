@@ -30,6 +30,8 @@ module TopologicalInventoryIngressApiClient
 
     attr_accessor :support_url
 
+    attr_accessor :extra
+
     attr_accessor :source_created_at
 
     attr_accessor :source_deleted_at
@@ -53,6 +55,7 @@ module TopologicalInventoryIngressApiClient
         :'long_description' => :'long_description',
         :'distributor' => :'distributor',
         :'support_url' => :'support_url',
+        :'extra' => :'extra',
         :'source_created_at' => :'source_created_at',
         :'source_deleted_at' => :'source_deleted_at',
         :'resource_timestamp' => :'resource_timestamp',
@@ -73,6 +76,7 @@ module TopologicalInventoryIngressApiClient
         :'long_description' => :'String',
         :'distributor' => :'String',
         :'support_url' => :'String',
+        :'extra' => :'Object',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
         :'resource_timestamp' => :'DateTime',
@@ -120,6 +124,10 @@ module TopologicalInventoryIngressApiClient
 
       if attributes.has_key?(:'support_url')
         self.support_url = attributes[:'support_url']
+      end
+
+      if attributes.has_key?(:'extra')
+        self.extra = attributes[:'extra']
       end
 
       if attributes.has_key?(:'source_created_at')
@@ -178,6 +186,7 @@ module TopologicalInventoryIngressApiClient
           long_description == o.long_description &&
           distributor == o.distributor &&
           support_url == o.support_url &&
+          extra == o.extra &&
           source_created_at == o.source_created_at &&
           source_deleted_at == o.source_deleted_at &&
           resource_timestamp == o.resource_timestamp &&
@@ -195,7 +204,7 @@ module TopologicalInventoryIngressApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, description, display_name, documentation_url, long_description, distributor, support_url, source_created_at, source_deleted_at, resource_timestamp, source_region, subscription, service_offering_icon].hash
+      [source_ref, name, description, display_name, documentation_url, long_description, distributor, support_url, extra, source_created_at, source_deleted_at, resource_timestamp, source_region, subscription, service_offering_icon].hash
     end
 
     # Builds the object from hash

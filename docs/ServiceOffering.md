@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **long_description** | **String** |  | [optional] 
 **distributor** | **String** |  | [optional] 
 **support_url** | **String** |  | [optional] 
+**extra** | [**Object**](.md) |  | [optional] 
 **source_created_at** | **DateTime** |  | [optional] 
 **source_deleted_at** | **DateTime** |  | [optional] 
 **resource_timestamp** | **DateTime** |  | [optional] 
