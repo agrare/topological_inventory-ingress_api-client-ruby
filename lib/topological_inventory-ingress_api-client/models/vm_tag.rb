@@ -18,14 +18,11 @@ module TopologicalInventoryIngressApiClient
 
     attr_accessor :tag
 
-    attr_accessor :value
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'vm' => :'vm',
-        :'tag' => :'tag',
-        :'value' => :'value'
+        :'tag' => :'tag'
       }
     end
 
@@ -33,8 +30,7 @@ module TopologicalInventoryIngressApiClient
     def self.openapi_types
       {
         :'vm' => :'InventoryObjectLazy',
-        :'tag' => :'InventoryObjectLazy',
-        :'value' => :'String'
+        :'tag' => :'InventoryObjectLazy'
       }
     end
 
@@ -52,10 +48,6 @@ module TopologicalInventoryIngressApiClient
 
       if attributes.has_key?(:'tag')
         self.tag = attributes[:'tag']
-      end
-
-      if attributes.has_key?(:'value')
-        self.value = attributes[:'value']
       end
     end
 
@@ -88,8 +80,7 @@ module TopologicalInventoryIngressApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           vm == o.vm &&
-          tag == o.tag &&
-          value == o.value
+          tag == o.tag
     end
 
     # @see the `==` method
@@ -101,7 +92,7 @@ module TopologicalInventoryIngressApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [vm, tag, value].hash
+      [vm, tag].hash
     end
 
     # Builds the object from hash
