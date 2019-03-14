@@ -96,6 +96,7 @@ Class | Method | HTTP request | Description
  - [TopologicalInventoryIngressApiClient::ContainerNodeTag](docs/ContainerNodeTag.md)
  - [TopologicalInventoryIngressApiClient::ContainerProject](docs/ContainerProject.md)
  - [TopologicalInventoryIngressApiClient::ContainerProjectTag](docs/ContainerProjectTag.md)
+ - [TopologicalInventoryIngressApiClient::ContainerResourceQuota](docs/ContainerResourceQuota.md)
  - [TopologicalInventoryIngressApiClient::ContainerTemplate](docs/ContainerTemplate.md)
  - [TopologicalInventoryIngressApiClient::ContainerTemplateTag](docs/ContainerTemplateTag.md)
  - [TopologicalInventoryIngressApiClient::Flavor](docs/Flavor.md)

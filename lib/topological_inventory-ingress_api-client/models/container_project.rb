@@ -26,6 +26,8 @@ module TopologicalInventoryIngressApiClient
 
     attr_accessor :source_deleted_at
 
+    attr_accessor :status_phase
+
     attr_accessor :resource_timestamp
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -37,6 +39,7 @@ module TopologicalInventoryIngressApiClient
         :'resource_version' => :'resource_version',
         :'source_created_at' => :'source_created_at',
         :'source_deleted_at' => :'source_deleted_at',
+        :'status_phase' => :'status_phase',
         :'resource_timestamp' => :'resource_timestamp'
       }
     end
@@ -50,6 +53,7 @@ module TopologicalInventoryIngressApiClient
         :'resource_version' => :'String',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
+        :'status_phase' => :'String',
         :'resource_timestamp' => :'DateTime'
       }
     end
@@ -84,6 +88,10 @@ module TopologicalInventoryIngressApiClient
 
       if attributes.has_key?(:'source_deleted_at')
         self.source_deleted_at = attributes[:'source_deleted_at']
+      end
+
+      if attributes.has_key?(:'status_phase')
+        self.status_phase = attributes[:'status_phase']
       end
 
       if attributes.has_key?(:'resource_timestamp')
@@ -125,6 +133,7 @@ module TopologicalInventoryIngressApiClient
           resource_version == o.resource_version &&
           source_created_at == o.source_created_at &&
           source_deleted_at == o.source_deleted_at &&
+          status_phase == o.status_phase &&
           resource_timestamp == o.resource_timestamp
     end
 
@@ -137,7 +146,7 @@ module TopologicalInventoryIngressApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, display_name, resource_version, source_created_at, source_deleted_at, resource_timestamp].hash
+      [source_ref, name, display_name, resource_version, source_created_at, source_deleted_at, status_phase, resource_timestamp].hash
     end
 
     # Builds the object from hash
