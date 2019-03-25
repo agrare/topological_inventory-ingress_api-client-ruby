@@ -18,6 +18,9 @@ module TopologicalInventoryIngressApiClient
 
     attr_accessor :name
 
+    # URL of the service instance in the external source (OpenShift, Azure, AWS, ...).
+    attr_accessor :external_url
+
     attr_accessor :source_created_at
 
     attr_accessor :source_deleted_at
@@ -37,6 +40,7 @@ module TopologicalInventoryIngressApiClient
       {
         :'source_ref' => :'source_ref',
         :'name' => :'name',
+        :'external_url' => :'external_url',
         :'source_created_at' => :'source_created_at',
         :'source_deleted_at' => :'source_deleted_at',
         :'resource_timestamp' => :'resource_timestamp',
@@ -52,6 +56,7 @@ module TopologicalInventoryIngressApiClient
       {
         :'source_ref' => :'String',
         :'name' => :'String',
+        :'external_url' => :'String',
         :'source_created_at' => :'DateTime',
         :'source_deleted_at' => :'DateTime',
         :'resource_timestamp' => :'DateTime',
@@ -76,6 +81,10 @@ module TopologicalInventoryIngressApiClient
 
       if attributes.has_key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.has_key?(:'external_url')
+        self.external_url = attributes[:'external_url']
       end
 
       if attributes.has_key?(:'source_created_at')
@@ -137,6 +146,7 @@ module TopologicalInventoryIngressApiClient
       self.class == o.class &&
           source_ref == o.source_ref &&
           name == o.name &&
+          external_url == o.external_url &&
           source_created_at == o.source_created_at &&
           source_deleted_at == o.source_deleted_at &&
           resource_timestamp == o.resource_timestamp &&
@@ -155,7 +165,7 @@ module TopologicalInventoryIngressApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [source_ref, name, source_created_at, source_deleted_at, resource_timestamp, service_offering, service_plan, source_region, subscription].hash
+      [source_ref, name, external_url, source_created_at, source_deleted_at, resource_timestamp, service_offering, service_plan, source_region, subscription].hash
     end
 
     # Builds the object from hash
