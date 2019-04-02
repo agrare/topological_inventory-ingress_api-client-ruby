@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **refresh_state_uuid** | **String** |  | [optional] 
 **refresh_state_part_uuid** | **String** |  | [optional] 
 **total_parts** | **Integer** |  | [optional] 
-**sweep_scope** | **Array&lt;String&gt;** |  | [optional] 
+**sweep_scope** | [**Object**](.md) |  | [optional] 
 **collections** | [**Array&lt;InventoryCollection&gt;**](InventoryCollection.md) |  | [optional] 
 
 

@@ -53,7 +53,7 @@ module TopologicalInventoryIngressApiClient
         :'refresh_state_uuid' => :'String',
         :'refresh_state_part_uuid' => :'String',
         :'total_parts' => :'Integer',
-        :'sweep_scope' => :'Array<String>',
+        :'sweep_scope' => :'Object',
         :'collections' => :'Array<InventoryCollection>'
       }
     end
@@ -91,9 +91,7 @@ module TopologicalInventoryIngressApiClient
       end
 
       if attributes.has_key?(:'sweep_scope')
-        if (value = attributes[:'sweep_scope']).is_a?(Array)
-          self.sweep_scope = value
-        end
+        self.sweep_scope = attributes[:'sweep_scope']
       end
 
       if attributes.has_key?(:'collections')
