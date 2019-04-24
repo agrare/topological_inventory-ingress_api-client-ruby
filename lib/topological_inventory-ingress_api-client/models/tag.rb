@@ -18,11 +18,14 @@ module TopologicalInventoryIngressApiClient
 
     attr_accessor :value
 
+    attr_accessor :namespace
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
-        :'value' => :'value'
+        :'value' => :'value',
+        :'namespace' => :'namespace'
       }
     end
 
@@ -30,7 +33,8 @@ module TopologicalInventoryIngressApiClient
     def self.openapi_types
       {
         :'name' => :'String',
-        :'value' => :'String'
+        :'value' => :'String',
+        :'namespace' => :'String'
       }
     end
 
@@ -49,6 +53,10 @@ module TopologicalInventoryIngressApiClient
       if attributes.has_key?(:'value')
         self.value = attributes[:'value']
       end
+
+      if attributes.has_key?(:'namespace')
+        self.namespace = attributes[:'namespace']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -59,6 +67,10 @@ module TopologicalInventoryIngressApiClient
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
 
+      if @namespace.nil?
+        invalid_properties.push('invalid value for "namespace", namespace cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -66,6 +78,7 @@ module TopologicalInventoryIngressApiClient
     # @return true if the model is valid
     def valid?
       return false if @name.nil?
+      return false if @namespace.nil?
       true
     end
 
@@ -75,7 +88,8 @@ module TopologicalInventoryIngressApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
-          value == o.value
+          value == o.value &&
+          namespace == o.namespace
     end
 
     # @see the `==` method
@@ -87,7 +101,7 @@ module TopologicalInventoryIngressApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, value].hash
+      [name, value, namespace].hash
     end
 
     # Builds the object from hash
